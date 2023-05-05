@@ -11,7 +11,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
