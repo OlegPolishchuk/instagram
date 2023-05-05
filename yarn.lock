@@ -5476,6 +5476,11 @@ inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@^2.0.4, i
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
+insert-css@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/insert-css/-/insert-css-0.0.0.tgz#2304bfa6f893abecb8ff9ca8d9c7605d94cf2911"
+  integrity sha512-PwixL1rVtKkM1gz43tEHwZ2sUOYmWB5zk/9YiEmOxERqjfIkkMY4jwrl3v3e9NLzblEdkBuMLiTLm/0sHMx4qA==
+
 internal-slot@^1.0.3, internal-slot@^1.0.4, internal-slot@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/internal-slot/-/internal-slot-1.0.5.tgz#f2a2ee21f668f8627a4667f309dc0f4fb6674986"
@@ -6450,6 +6455,13 @@ node-releases@^2.0.8:
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.10.tgz#c311ebae3b6a148c89b1813fd7c4d3c024ef537f"
   integrity sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w==
+
+normalize-css@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/normalize-css/-/normalize-css-2.3.1.tgz#fc03e3b91e3a51aa7a1836bae7b2b6ac6d51e156"
+  integrity sha512-70Lnkke3P+8ehu56S0M0yoUTgTve/rCrEncjdgPmKER/TLZMRa30rFLW7Yv3iGZldmGV4bGevGW47VOfZJbGyw==
+  dependencies:
+    insert-css "0.0.0"
 
 normalize-package-data@^2.5.0:
   version "2.5.0"
