@@ -1,7 +1,8 @@
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
+import { FiEye } from 'react-icons/fi';
 
-import { Input } from '@/shared/ui';
+import { Button, Input } from '@/shared/ui';
 import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -17,6 +18,16 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Input placeholder="Email" label="Email" type="password" />
+
+        <Button>Button</Button>
+
+        <Button variant="outlined">Button</Button>
+
+        <Button variant="subtle">Button</Button>
+
+        <Button variant="default">Button</Button>
+
+        <Button leftIcon={<FiEye />}>wefwef</Button>
       </main>
     </>
   );

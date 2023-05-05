@@ -1,10 +1,9 @@
 import React, { ComponentPropsWithRef, FC, KeyboardEvent, useState } from 'react';
 
 import clsx from 'clsx';
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 
 import cls from './Input.module.css';
-
-import { EyeIcon, EyeOffIcon } from '@/shared/svg_icons';
 
 interface Props extends ComponentPropsWithRef<'input'> {
   error?: string;
@@ -48,9 +47,9 @@ export const Input: FC<Props> = ({
 
       {type === 'password' &&
         (showPassword ? (
-          <EyeOffIcon className={cls.icon} onClick={handleToggleSowPassword} />
+          <BsEyeSlashFill className={cls.icon} onClick={handleToggleSowPassword} />
         ) : (
-          <EyeIcon className={cls.icon} onClick={handleToggleSowPassword} />
+          <BsEyeFill className={cls.icon} onClick={handleToggleSowPassword} />
         ))}
 
       {error && <span className={cls.errorMessage}>{error}</span>}
