@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import { FiEye } from 'react-icons/fi';
 
-import { Button, Input } from '@/shared/ui';
+import { Button, Input, SearchInput, Textarea } from '@/shared/ui';
 import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -28,6 +28,11 @@ export default function Home() {
         <Button variant="default">Button</Button>
 
         <Button leftIcon={<FiEye />}>wefwef</Button>
+
+        <SearchInput />
+        <SearchInput fullWidth />
+
+        <Textarea errorMessage="error" />
       </main>
     </>
   );

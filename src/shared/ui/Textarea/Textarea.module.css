@@ -1,0 +1,55 @@
+.wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.wrapper.full {
+  display: block;
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+
+  font-size: 14px;
+  color: var(--color-danger-500);
+}
+
+.textarea {
+  padding: 6px;
+  min-height: 90px;
+  min-width: 300px;
+
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-dark-300);
+  outline: none;
+
+  background: var(--color-dark-500);
+  color: var(--color-light-900);
+
+  resize: none;
+  transition: .2s ease;
+}
+
+.textarea::placeholder {
+  color: var(--color-light-900);
+  font-style: italic;
+}
+
+.textarea:active,
+.textarea:hover,
+.textarea:focus {
+  border-color: var(--color-light-100);
+  color: var(--color-light-100);
+}
+
+.textarea:disabled {
+  border-color: var(--color-dark-100);
+  color: var(--color-dark-100);
+}
+
+.textarea.error {
+  border-color: var(--color-danger-500)
+}
+
