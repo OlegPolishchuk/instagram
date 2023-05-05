@@ -30,9 +30,64 @@
     "@typescript-eslint"
   ],
   "rules": {
+
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
-    "react/jsx-props-no-spreading": 0
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": 0,
+    "react/jsx-props-no-spreading": 0,
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ]
+      }
+    ],
+    "import/extensions": "off",
+    "consistent-return": "off",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return"},
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
+    ],
+    "no-shadow": "off",
+    "no-debugger": "error",
+    "no-unused-vars": "off",
+    "no-magic-numbers": [
+      "error",
+      {
+        "ignore": [
+          0,
+          1,
+          -1
+        ]
+      }
+    ],
+    "no-use-before-define": "off",
+    "no-unused-expressions": "off",
+    "jsx-a11y/label-has-associated-control": 0
   }
 }
