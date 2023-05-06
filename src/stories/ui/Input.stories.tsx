@@ -20,7 +20,7 @@ export const Default: Story = {
 
 export const Error: Story = {
   args: {
-    error: 'Error message',
+    errorMessage: 'Error message',
   },
 };
 

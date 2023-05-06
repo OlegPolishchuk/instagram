@@ -1,3 +1,3 @@
 export { Header } from './Header/Header';
-export { LoginForm } from './LoginForm/LoginForm';
+export { LoginForm, RegisterForm } from './Forms';
 export { getHeaderLayout } from './Layouts';

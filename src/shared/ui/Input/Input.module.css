@@ -55,6 +55,14 @@
   border-color: var(--color-dark-300);
 }
 
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  background-color: inherit;
+  -webkit-text-fill-color: var(--color-light-100);
+  -webkit-box-shadow: 0 0 0 1000px var(--color-dark-500) inset;
+}
+
 .errorMessage {
   position: absolute;
   bottom: -10px;

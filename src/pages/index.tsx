@@ -2,8 +2,7 @@ import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import { FiEye } from 'react-icons/fi';
 
-import { Header } from '@/components';
-import { getHeaderLayout } from '@/components/Layouts';
+import { getHeaderLayout } from '@/components';
 import { Button, Input, SearchInput, Textarea } from '@/shared/ui';
 import { useGetPostsQuery } from '@/store/api/apiSlice';
 import styles from '@/styles/Home.module.css';

@@ -1,10 +1,8 @@
-import cls from './Login.module.css';
-
-import { LoginForm, getHeaderLayout } from '@/components';
+import { getHeaderLayout, LoginForm } from '@/components';
 
 const Login = () => {
   return (
-    <div className={cls.wrapper}>
+    <div className="flex_center">
       <LoginForm />
     </div>
   );

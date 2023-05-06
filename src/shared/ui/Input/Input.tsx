@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithRef, FC, KeyboardEvent, useState } from 'react';
+import React, { ComponentPropsWithRef, forwardRef, KeyboardEvent, useState } from 'react';
 
 import clsx from 'clsx';
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
@@ -6,53 +6,52 @@ import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import cls from './Input.module.css';
 
 interface Props extends ComponentPropsWithRef<'input'> {
-  error?: string;
+  errorMessage?: string;
   onEnterCallback?: () => void;
   label?: string;
 }
-export const Input: FC<Props> = ({
-  type,
-  error,
-  label,
-  disabled,
-  onEnterCallback,
-  ...restProps
-}) => {
-  const [inputType, setInputType] = useState(type);
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (onEnterCallback) {
-      event.key === 'Enter' && onEnterCallback();
-    }
-  };
+export const Input = forwardRef<HTMLInputElement, Props>(
+  ({ type, errorMessage, label, disabled, onEnterCallback, ...restProps }, ref) => {
+    const [inputType, setInputType] = useState(type);
+    const [showPassword, setShowPassword] = useState(false);
 
-  const handleToggleSowPassword = () => {
-    setShowPassword(!showPassword);
-    setInputType(!showPassword ? 'text' : 'password');
-  };
+    const handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
+      if (onEnterCallback) {
+        event.key === 'Enter' && onEnterCallback();
+      }
+    };
 
-  return (
-    <div className={clsx(cls.wrapper, disabled && cls.disabled, error && cls.error)}>
-      <label className={cls.label}>
-        {label}:
-        <input
-          className={cls.input}
-          type={inputType}
-          onKeyUp={handleKeyUp}
-          disabled={disabled}
-          {...restProps}
-        />
-      </label>
+    const handleToggleSowPassword = () => {
+      setShowPassword(!showPassword);
+      setInputType(!showPassword ? 'text' : 'password');
+    };
 
-      {type === 'password' &&
-        (showPassword ? (
-          <BsEyeSlashFill className={cls.icon} onClick={handleToggleSowPassword} />
-        ) : (
-          <BsEyeFill className={cls.icon} onClick={handleToggleSowPassword} />
-        ))}
+    return (
+      <div
+        className={clsx(cls.wrapper, disabled && cls.disabled, errorMessage && cls.error)}
+      >
+        <label className={cls.label}>
+          {label}:
+          <input
+            ref={ref}
+            className={cls.input}
+            type={inputType}
+            onKeyUp={handleKeyUp}
+            disabled={disabled}
+            {...restProps}
+          />
+        </label>
 
-      {error && <span className={cls.errorMessage}>{error}</span>}
-    </div>
-  );
-};
+        {type === 'password' &&
+          (showPassword ? (
+            <BsEyeSlashFill className={cls.icon} onClick={handleToggleSowPassword} />
+          ) : (
+            <BsEyeFill className={cls.icon} onClick={handleToggleSowPassword} />
+          ))}
+
+        {errorMessage && <span className={cls.errorMessage}>{errorMessage}</span>}
+      </div>
+    );
+  },
+);
