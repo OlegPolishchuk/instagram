@@ -8,6 +8,7 @@ import * as yap from 'yup';
 import cls from './LoginForm.module.css';
 
 import { Button, Form, Input, FormFooter } from '@/shared/ui';
+import { SocialAuth } from '@/shared/ui/Forms/Form';
 
 const schema = yap
   .object({
@@ -31,6 +32,8 @@ export const LoginForm = () => {
 
   return (
     <Form title="SignUp" onSubmit={handleSubmit(onSubmit)}>
+      <SocialAuth />
+
       <Input
         type="text"
         label="Email"

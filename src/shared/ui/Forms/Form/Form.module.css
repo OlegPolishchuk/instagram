@@ -30,3 +30,20 @@
 
   color: var(--color-light-100);
 }
+
+.form_social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.social_icon {
+  width: 36px;
+  height: 36px;
+
+  cursor: pointer;
+}
+
+.invert {
+  filter: invert(1);
+}

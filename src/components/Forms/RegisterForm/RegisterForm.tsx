@@ -7,6 +7,7 @@ import * as yup from 'yup';
 
 import { FormValidation } from '@/shared/constant';
 import { Button, Form, FormFooter, Input } from '@/shared/ui';
+import { SocialAuth } from '@/shared/ui/Forms/Form';
 
 const schema = yup.object({
   username: yup.string().required().min(FormValidation.minUsernameLength),
@@ -32,6 +33,8 @@ export const RegisterForm = () => {
 
   return (
     <Form title="Sign In" onSubmit={handleSubmit(onSubmit)}>
+      <SocialAuth />
+
       <Input
         type="text"
         label="Username"
