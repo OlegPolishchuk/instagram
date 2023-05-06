@@ -1,0 +1,1 @@
+export { getHeaderLayout } from './HeaderLayout';

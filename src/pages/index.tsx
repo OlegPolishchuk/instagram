@@ -2,12 +2,19 @@ import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import { FiEye } from 'react-icons/fi';
 
+import { Header } from '@/components';
+import { getHeaderLayout } from '@/components/Layouts';
 import { Button, Input, SearchInput, Textarea } from '@/shared/ui';
+import { useGetPostsQuery } from '@/store/api/apiSlice';
 import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const { error, data, isLoading } = useGetPostsQuery();
+
+  console.log(data);
+
   return (
     <>
       <Head>
@@ -37,3 +44,5 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = getHeaderLayout;

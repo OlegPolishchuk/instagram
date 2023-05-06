@@ -1,5 +1,6 @@
 .button {
-  display: flex;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
   padding: 6px 24px;
   gap: 10px;
@@ -87,7 +88,7 @@
 
 .subtle {
   border-color: transparent;
-  background: transparent;
+  background-color: transparent;
 
   color: var(--color-primary-500);
 }

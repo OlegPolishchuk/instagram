@@ -23,6 +23,7 @@ const config: StorybookConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@/shared/ui": path.resolve(__dirname, "../src/shared/ui"),
+      "@/components": path.resolve(__dirname, "../src/components"),
     };
 
     return config;

@@ -1,0 +1,7 @@
+.form_button_forgot {
+  align-self: flex-end;
+  padding: 0;
+
+  font-size: 14px;
+  color: var(--color-light-900);
+}

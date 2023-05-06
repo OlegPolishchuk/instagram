@@ -1,4 +1,5 @@
-export * from './Input/Input';
-export * from './Button/Button';
-export * from './SearchInput/SearchInput';
-export * from './Textarea/Textarea';
+export { Input } from './Input/Input';
+export { Button } from './Button/Button';
+export { SearchInput } from './SearchInput/SearchInput';
+export { Textarea } from './Textarea/Textarea';
+export { Form, FormFooter } from './Forms';

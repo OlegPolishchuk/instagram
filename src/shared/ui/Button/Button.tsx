@@ -19,6 +19,7 @@ export const Button: FC<Props> = ({
   rightIcon,
   type,
   children,
+  className,
   ...restProps
 }) => {
   return (
@@ -28,6 +29,7 @@ export const Button: FC<Props> = ({
         cls[variant],
         disabled && cls.disabled,
         fullwidth && cls.fullwidth,
+        className && className,
       ])}
       type={type === 'submit' ? 'submit' : 'button'}
       {...restProps}
