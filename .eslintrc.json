@@ -27,7 +27,8 @@
     "import",
     "prettier",
     "react-hooks",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "@next/eslint-plugin-next"
   ],
   "rules": {
 
