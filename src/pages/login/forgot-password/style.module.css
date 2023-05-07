@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hint {
+  font-size: 14px;
+}
+
+.capcha {
+  padding: 12px 20px;
+  background-color: var(--color-dark-500);
+  border: 1px solid var(--color-dark-300);
+  border-radius: var(--border-radius);
+}

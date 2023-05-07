@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { FiEye } from 'react-icons/fi';
 
 import { getHeaderLayout } from '@/components';
-import { BaseModal, Button, Input, SearchInput, Textarea } from '@/shared/ui';
+import { BaseModal, Button, Checkbox, Input, SearchInput, Textarea } from '@/shared/ui';
 import { useGetPostsQuery } from '@/store/api/apiSlice';
 import styles from '@/styles/Home.module.css';
 
@@ -15,6 +15,7 @@ export default function Home() {
   const { error, data, isLoading } = useGetPostsQuery();
 
   const [open, setOpen] = useState(false);
+  const [checkbox, setCheckbox] = useState(false);
 
   console.log(data);
 
@@ -55,6 +56,12 @@ export default function Home() {
         >
           <p>We have sent a link to confirm your </p>
         </BaseModal>
+
+        <Checkbox
+          checked={checkbox}
+          onChange={e => setCheckbox(e.target.checked)}
+          label="Some field"
+        />
       </main>
     </>
   );
