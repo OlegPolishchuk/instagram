@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import { Confirmation, getHeaderLayout } from '@/components';
-import { Routes } from '@/shared/constant';
+import { Routes } from '@/shared/constants';
 
 const ConfirmationPage = () => {
   const router = useRouter();

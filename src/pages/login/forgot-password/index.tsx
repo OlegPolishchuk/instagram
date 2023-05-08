@@ -5,7 +5,7 @@ import Link from 'next/link';
 import cls from './style.module.css';
 
 import { getHeaderLayout } from '@/components';
-import { Routes } from '@/shared/constant';
+import { Routes } from '@/shared/constants';
 import { Button, Form, FormFooter, Input } from '@/shared/ui';
 
 const ForgotPassword = () => {
@@ -24,7 +24,7 @@ const ForgotPassword = () => {
 
         <Button>Send Link</Button>
         <FormFooter>
-          <Link href={Routes.Login}>Back to Sign In</Link>
+          <Link href={Routes.Login.base}>Back to Sign In</Link>
         </FormFooter>
       </Form>
     </div>

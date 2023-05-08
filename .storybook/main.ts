@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    'storybook-addon-next-router'
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -23,6 +24,8 @@ const config: StorybookConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@/shared/ui": path.resolve(__dirname, "../src/shared/ui"),
+      "@/shared/constants": path.resolve(__dirname, "../src/shared/constants"),
+      "@/pages/*": path.resolve(__dirname, "../src/pages"),
       "@/components": path.resolve(__dirname, "../src/components"),
     };
 

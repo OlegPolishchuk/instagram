@@ -6,18 +6,13 @@ import { FiEye } from 'react-icons/fi';
 
 import { getHeaderLayout } from '@/components';
 import { BaseModal, Button, Checkbox, Input, SearchInput, Textarea } from '@/shared/ui';
-import { useGetPostsQuery } from '@/store/api/apiSlice';
 import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const { error, data, isLoading } = useGetPostsQuery();
-
   const [open, setOpen] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
-
-  console.log(data);
 
   return (
     <>

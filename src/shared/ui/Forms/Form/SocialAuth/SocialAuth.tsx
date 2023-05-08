@@ -10,7 +10,7 @@ export const SocialAuth = () => {
   return (
     <div className={cls.form_social}>
       <FcGoogle className={cls.social_icon} />
-      <FaGithub className={clsx(cls.social_icon, cls.invert)} />
+      <FaGithub className={cls.social_icon} />
     </div>
   );
 };

@@ -42,6 +42,10 @@
   background-image: url("../../../../public/icons/checkbox_icon.svg");
 }
 
+.checkbox:disabled {
+  cursor: not-allowed;
+}
+
 .label {
   display: inline-flex;
   align-items: center;

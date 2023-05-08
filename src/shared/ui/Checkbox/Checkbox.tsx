@@ -1,5 +1,7 @@
 import React, { ChangeEvent, ComponentPropsWithRef } from 'react';
 
+import clsx from 'clsx';
+
 import cls from './Checkbox.module.css';
 
 interface Props extends ComponentPropsWithRef<'input'> {
@@ -27,10 +29,11 @@ export const Checkbox = ({
     <label className={cls.wrapper}>
       <div className={cls.checkbox_container}>
         <input
-          className={cls.checkbox}
+          className={clsx(cls.checkbox, className && className)}
           type="checkbox"
           checked={checked}
           onChange={handleChange}
+          disabled={disabled}
           {...restProps}
         />
       </div>

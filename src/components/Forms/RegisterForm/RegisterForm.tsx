@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
-import { FormValidation } from '@/shared/constant';
+import { FormValidation } from '@/shared/constants';
 import { Button, Form, FormFooter, Input } from '@/shared/ui';
 import { SocialAuth } from '@/shared/ui/Forms/Form';
+import { useRegistrationMutation, useGetMeQuery } from '@/store/api';
 
 const schema = yup.object({
   username: yup.string().required().min(FormValidation.minUsernameLength),
@@ -23,13 +24,27 @@ const schema = yup.object({
 type RegisterFormData = yup.InferType<typeof schema>;
 
 export const RegisterForm = () => {
+  const [registerUser, { isLoading }] = useRegistrationMutation();
+
+  const { data } = useGetMeQuery();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterFormData>({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data: RegisterFormData) => console.log(data);
+  const onSubmit = async (data: RegisterFormData) => {
+    const { password, email, username } = data;
+
+    console.log(data);
+
+    try {
+      await registerUser({ password, email, username });
+    } catch (error) {
+      console.log(error, 'Failed to register new User');
+    }
+  };
 
   return (
     <Form title="Sign In" onSubmit={handleSubmit(onSubmit)}>
