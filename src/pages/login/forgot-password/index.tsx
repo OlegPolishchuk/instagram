@@ -11,7 +11,7 @@ import { Routes } from '@/shared/constants';
 import { Button, Form, FormFooter, Input } from '@/shared/ui';
 import { getStaticPropsWithLocale } from '@/shared/utils';
 
-const ForgotPassword = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
   const { t } = useTranslation('loginPage');
 
   return (
@@ -23,7 +23,7 @@ const ForgotPassword = (_props: InferGetStaticPropsType<typeof getStaticProps>) 
           <p className={cls.hint}>{t('forgot_password.hint')}</p>
         </div>
 
-        <div className={cls.capcha}>Capcha</div>
+        <div className={cls.captcha}>Captcha</div>
 
         <Button>{t('forgot_password.button_title')}</Button>
         <FormFooter>

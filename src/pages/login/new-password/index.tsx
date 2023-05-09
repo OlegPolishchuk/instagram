@@ -3,7 +3,6 @@ import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -29,7 +28,7 @@ const schema = yup
 
 type FormData = yup.InferType<typeof schema>;
 
-export const NewPassword = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
   const {
     register,
     handleSubmit,

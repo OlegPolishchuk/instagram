@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -26,7 +27,7 @@ type RegisterFormData = yup.InferType<typeof schema>;
 export const RegisterForm = () => {
   const [registerUser, { isLoading }] = useRegistrationMutation();
 
-  const { data } = useGetMeQuery();
+  const { t } = useTranslation('registerPage');
 
   const {
     register,
@@ -47,42 +48,42 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Form title="Sign In" onSubmit={handleSubmit(onSubmit)}>
+    <Form title={t('form.title')} onSubmit={handleSubmit(onSubmit)}>
       <SocialAuth />
 
       <Input
         type="text"
-        label="Username"
+        label={t('form.input_username.label')}
         {...register('username')}
         errorMessage={errors.username?.message}
       />
 
       <Input
         type="text"
-        label="Email"
+        label={t('form.input_email.label')}
         {...register('email')}
         errorMessage={errors.email?.message}
       />
 
       <Input
         type="password"
-        label="Password"
+        label={t('form.input_password.label')}
         {...register('password')}
         errorMessage={errors.password?.message}
       />
 
       <Input
         type="password"
-        label="Password confirmation"
+        label={t('form.input_password_confirm.label')}
         {...register('passwordConfirmation')}
         errorMessage={errors.passwordConfirmation?.message}
       />
 
-      <Button type="submit">Sign Up</Button>
+      <Button type="submit">{t('form.buttons.signUp')}</Button>
 
       <FormFooter>
-        <span>Do you have an account?</span>
-        <Link href="/">Sign In</Link>
+        <span>{t('form.form_footer.title')}</span>
+        <Link href="/">{t('form.form_footer.link')}</Link>
       </FormFooter>
     </Form>
   );

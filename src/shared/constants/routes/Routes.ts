@@ -6,8 +6,8 @@ export const Routes = {
   },
   Register: {
     base: '/register',
-    ConfirmationEmail: '/register/confirmation',
-    ExpiredConfirmation: '/register/expired-confirmation',
+    ConfirmationEmail: '/register/email-confirmation',
+    ExpiredConfirmation: '/register/expired-email-confirmation',
   },
   Main: '/',
 };

@@ -14,7 +14,7 @@ import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
+const Home: InferGetStaticPropsType<typeof getStaticProps> = () => {
   const [open, setOpen] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
 
@@ -68,8 +68,9 @@ export default function Home(_props: InferGetStaticPropsType<typeof getStaticPro
       </main>
     </>
   );
-}
-
-export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();
+};
 
 Home.getLayout = getHeaderLayout;
+export default Home;
+
+export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();

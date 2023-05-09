@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { getHeaderLayout, RegisterForm } from '@/components';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-const Register = () => {
+import { getHeaderLayout, RegisterForm } from '@/components';
+import { getStaticPropsWithLocale } from '@/shared/utils';
+
+const Register = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className="flex_center">
       <RegisterForm />
@@ -13,3 +16,5 @@ const Register = () => {
 Register.getLayout = getHeaderLayout;
 
 export default Register;
+
+export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();

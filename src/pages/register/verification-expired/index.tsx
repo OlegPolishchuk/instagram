@@ -1,8 +1,14 @@
 import React from 'react';
 
-import { Confirmation, getHeaderLayout } from '@/components';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 
-const VerificationExpired = () => {
+import { Confirmation, getHeaderLayout } from '@/components';
+import { getStaticPropsWithLocale } from '@/shared/utils';
+
+const VerificationExpired: InferGetStaticPropsType<typeof getStaticProps> = () => {
+  const { t } = useTranslation('registerPage');
+
   const handleResendVerification = () => {
     console.log('s');
   };
@@ -10,9 +16,9 @@ const VerificationExpired = () => {
   return (
     <Confirmation
       clickCallback={handleResendVerification}
-      buttonTitle="Resend verification link"
-      title="Email verification link expired"
-      message="Looks like the verification link has expired. Not to worry, we can send the link again"
+      buttonTitle={t('email_verification.button_title')}
+      title={t('email_verification.title')}
+      message={t('email_verification.message')}
       img="/images/expired_time_mobile.png"
     />
   );
@@ -20,3 +26,5 @@ const VerificationExpired = () => {
 
 VerificationExpired.getLayout = getHeaderLayout;
 export default VerificationExpired;
+
+export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();
