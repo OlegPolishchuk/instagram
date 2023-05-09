@@ -8,7 +8,8 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-addon-next-router'
+    'storybook-addon-next-router',
+    'storybook-react-i18next',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -17,6 +18,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  staticDirs: ['../public'],
   webpackFinal: async (config, { configType }) => {
     config.resolve.modules = [
       path.resolve(__dirname, "../src"), "node_modules"];
@@ -27,7 +29,18 @@ const config: StorybookConfig = {
       "@/shared/constants": path.resolve(__dirname, "../src/shared/constants"),
       "@/pages/*": path.resolve(__dirname, "../src/pages"),
       "@/components": path.resolve(__dirname, "../src/components"),
+      "@/store/api": path.resolve(__dirname, "../src/store/api"),
     };
+
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        ...(config.resolve || {}).fallback,
+        fs: false,
+        stream: false,
+        os: false,
+      },
+    }
 
     return config;
   }
