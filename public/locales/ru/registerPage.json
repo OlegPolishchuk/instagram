@@ -1,0 +1,34 @@
+{
+  "form": {
+    "title": "Регистрация",
+    "input_username": {
+      "label": "Имя пользователя"
+    },
+    "input_email": {
+      "label": "Почта"
+    },
+    "input_password": {
+      "label": "Пароль"
+    },
+    "input_password_confirm": {
+      "label": "Повторите пароль"
+    },
+    "buttons": {
+      "signUp": "Зарегистрироваться"
+    },
+    "form_footer": {
+      "title": "Уже есть аккаунт?",
+      "link": "Войти"
+    }
+  },
+  "email_verification": {
+    "button_title": "Повторно выслать напочту",
+    "title": "Время подтверждения ссылки истекло",
+    "message": "Время подтверждения истекло. Не волнуйтесь, можно запросить еще раз"
+  },
+  "email_confirmation": {
+    "button_title": "Войти",
+    "title": "Поздравляем!",
+    "message": "Ваша почта подтверждена"
+  }
+}

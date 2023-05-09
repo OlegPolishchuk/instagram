@@ -1,0 +1,35 @@
+{
+  "form": {
+    "title": "SignIn",
+    "input_username": {
+      "label": "Username"
+    },
+    "input_email": {
+      "label": "Email"
+    },
+    "input_password": {
+      "label": "Password"
+    },
+    "input_password_confirm": {
+      "label": "Password confirmation"
+    },
+    "buttons": {
+      "signUp": "Sign Up"
+    },
+
+    "form_footer": {
+      "title": "Do you have an account?",
+      "link": "Sign In"
+    }
+  },
+  "email_verification": {
+    "button_title": "Resend verification link",
+    "title": "Email verification link expired",
+    "message": "Looks like the verification link has expired. Not to worry, we can send the link again"
+  },
+  "email_confirmation": {
+    "button_title": "Sign In",
+    "title": "Congratulations!",
+    "message": "Your email has been confirmed"
+  }
+}

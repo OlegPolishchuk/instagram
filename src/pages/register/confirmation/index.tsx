@@ -8,7 +8,7 @@ import { Routes } from '@/shared/constants';
 const ConfirmationPage = () => {
   const router = useRouter();
   const handleClick = async () => {
-    await router.push(Routes.Login);
+    await router.push(Routes.Register.ConfirmationEmail);
   };
 
   return (

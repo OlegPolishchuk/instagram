@@ -40,7 +40,7 @@ export const RegisterForm = () => {
     console.log(data);
 
     try {
-      await registerUser({ password, email, username });
+      await registerUser({ password, email, userName: username });
     } catch (error) {
       console.log(error, 'Failed to register new User');
     }

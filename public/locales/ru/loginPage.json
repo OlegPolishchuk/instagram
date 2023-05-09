@@ -1,0 +1,36 @@
+{
+  "form": {
+    "title": "Вход",
+    "input_email": {
+      "label": "Почта"
+    },
+    "input_password": {
+      "label": "Пароль"
+    },
+    "buttons": {
+      "forgot_password": "Забыли пароль?",
+      "signIn": "Зарегистрироваться"
+    },
+    "form_footer": {
+      "title": "Нет аккаунта?",
+      "link": "Войти"
+    }
+  },
+  "forgot_password": {
+    "title": "Забыли пароль",
+    "input_email": "Почта",
+    "hint": "Введите адрес электронной почты и мы вышлем вам письмо с дальнейшими указаниями",
+    "button_title": "Выслать указания",
+    "form_footer": {
+      "link": "Вернуться на Вход"
+    }
+  },
+  "new_password": {
+    "form": {
+      "title": "Создать новый пароль",
+      "input_password": "Новый пароль",
+      "input_password_confirm": "Повторите пароль",
+      "button_title": "Создать новый пароль"
+    }
+  }
+}

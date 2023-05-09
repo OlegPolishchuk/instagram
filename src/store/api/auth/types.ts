@@ -1,5 +1,5 @@
 export interface RegistrationUserFormData {
-  username: string;
+  userName: string;
   email: string;
   password: string;
 }

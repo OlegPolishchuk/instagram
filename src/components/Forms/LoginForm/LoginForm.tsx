@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as yap from 'yup';
@@ -20,6 +21,8 @@ const schema = yap
 type LoginFormData = yap.InferType<typeof schema>;
 
 export const LoginForm = () => {
+  const { t } = useTranslation('loginPage');
+
   const {
     register,
     handleSubmit,
@@ -31,29 +34,29 @@ export const LoginForm = () => {
   };
 
   return (
-    <Form title="SignUp" onSubmit={handleSubmit(onSubmit)}>
+    <Form title={t('form.title')} onSubmit={handleSubmit(onSubmit)}>
       <SocialAuth />
 
       <Input
         type="text"
-        label="Email"
+        label={t('form.input_email.label')}
         {...register('email')}
         errorMessage={errors?.email?.message}
       />
       <Input
         type="password"
-        label="Password"
+        label={t('form.input_password.label')}
         {...register('password')}
         errorMessage={errors?.password?.message}
       />
       <Button variant="subtle" className={cls.form_button_forgot}>
-        Forgot password
+        {t('form.buttons.forgot_password')}
       </Button>
-      <Button type="submit">Sign In</Button>
+      <Button type="submit">{t('form.buttons.signIn')}</Button>
 
       <FormFooter>
-        <span>Do not have an account?</span>
-        <Link href="/">Sign un</Link>
+        <span>{t('form.form_footer.title')}</span>
+        <Link href="/">{t('form.form_footer.link')}</Link>
       </FormFooter>
     </Form>
   );

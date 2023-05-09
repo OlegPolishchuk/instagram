@@ -1,0 +1,36 @@
+{
+  "form": {
+    "title": "SignUp",
+    "input_email": {
+      "label": "Email"
+    },
+    "input_password": {
+      "label": "Password"
+    },
+    "buttons": {
+      "forgot_password": "Forgot password",
+      "signIn": "Sign In"
+    },
+    "form_footer": {
+      "title": "Do not have an account?",
+      "link": "Sign un"
+    }
+  },
+  "forgot_password": {
+    "title": "Forgot password",
+    "input_email": "Email",
+    "hint": "Enter your email address and we will send you further instructions",
+    "button_title": "Send link",
+    "form_footer": {
+      "link": "Back to Sign In"
+    }
+  },
+  "new_password": {
+    "form": {
+      "title": "Create New Password",
+      "input_password": "New Password",
+      "input_password_confirm": "Password Confirmation",
+      "button_title": "Create New Password"
+    }
+  }
+}

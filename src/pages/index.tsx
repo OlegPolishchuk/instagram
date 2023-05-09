@@ -1,18 +1,26 @@
 import { useState } from 'react';
 
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import { FiEye } from 'react-icons/fi';
 
 import { getHeaderLayout } from '@/components';
 import { BaseModal, Button, Checkbox, Input, SearchInput, Textarea } from '@/shared/ui';
+import { getStaticPropsWithLocale } from '@/shared/utils';
+import { useGetMeQuery } from '@/store/api';
 import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home(_props: InferGetStaticPropsType<typeof getStaticProps>) {
   const [open, setOpen] = useState(false);
   const [checkbox, setCheckbox] = useState(false);
+
+  const { data } = useGetMeQuery();
+
+  console.log(data);
 
   return (
     <>
@@ -61,5 +69,7 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();
 
 Home.getLayout = getHeaderLayout;
