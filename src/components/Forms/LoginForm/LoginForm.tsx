@@ -10,6 +10,7 @@ import cls from './LoginForm.module.css';
 
 import { Button, Form, Input, FormFooter } from '@/shared/ui';
 import { SocialAuth } from '@/shared/ui/Forms/Form';
+import { useLoginUserMutation } from '@/store/api';
 
 const schema = yap
   .object({
@@ -21,6 +22,8 @@ const schema = yap
 type LoginFormData = yap.InferType<typeof schema>;
 
 export const LoginForm = () => {
+  const [handleLogin, { isLoading, isSuccess, data, error }] = useLoginUserMutation();
+
   const { t } = useTranslation('loginPage');
 
   const {
@@ -31,7 +34,12 @@ export const LoginForm = () => {
 
   const onSubmit = (data: LoginFormData) => {
     console.log(data);
+    handleLogin(data);
   };
+
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <Form title={t('form.title')} onSubmit={handleSubmit(onSubmit)}>

@@ -1,13 +1,11 @@
 export const Routes = {
-  Login: {
-    base: '/login',
-    ForgotPassword: '/login/forgot-password',
-    NewPassword: '/login/new-password',
-  },
-  Register: {
-    base: '/register',
-    ConfirmationEmail: '/register/email-confirmation',
-    ExpiredConfirmation: '/register/expired-email-confirmation',
+  auth: {
+    Login: '/auth/login',
+    ForgotPassword: '/auth/login/forgot-password',
+    NewPassword: '/auth/login/new-password',
+    Register: '/auth/register',
+    VerificationExpired: '/auth/verification-expired',
+    RegistrationConfirmation: '/auth/registration-confirmation',
   },
   Main: '/',
 };

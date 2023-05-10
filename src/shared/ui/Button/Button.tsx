@@ -32,6 +32,7 @@ export const Button: FC<Props> = ({
         className && className,
       ])}
       type={type === 'submit' ? 'submit' : 'button'}
+      disabled={disabled}
       {...restProps}
     >
       {leftIcon && leftIcon}

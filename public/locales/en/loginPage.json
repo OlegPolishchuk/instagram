@@ -1,6 +1,6 @@
 {
   "form": {
-    "title": "SignUp",
+    "title": "SignIn",
     "input_email": {
       "label": "Email"
     },

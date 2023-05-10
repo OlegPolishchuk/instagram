@@ -1,2 +1,7 @@
-export { useRegistrationMutation, useGetMeQuery } from './auth/authApi';
-export type { RegistrationUserFormData } from './auth/types';
+export {
+  useRegistrationMutation,
+  useGetMeQuery,
+  useLoginUserMutation,
+  useConfirmEmailMutation,
+} from './auth/authApi';
+export type { RegistrationUserFormData, LoginUserFormData } from './auth/types';

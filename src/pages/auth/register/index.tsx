@@ -5,7 +5,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getHeaderLayout, RegisterForm } from '@/components';
 import { getStaticPropsWithLocale } from '@/shared/utils';
 
-const Register = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Register: InferGetStaticPropsType<typeof getStaticProps> = () => {
   return (
     <div className="flex_center">
       <RegisterForm />

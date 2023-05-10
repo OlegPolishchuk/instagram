@@ -3,3 +3,8 @@ export interface RegistrationUserFormData {
   email: string;
   password: string;
 }
+
+export interface LoginUserFormData {
+  email: string;
+  password: string;
+}

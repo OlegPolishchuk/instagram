@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentPropsWithRef } from 'react';
 
 import Image from 'next/image';
 
@@ -12,12 +12,14 @@ interface Props {
   message?: string;
   buttonTitle: string;
   img?: string;
+  isButtonDisabled?: boolean;
 }
 
 export const Confirmation = ({
   clickCallback,
   title,
   message,
+  isButtonDisabled,
   buttonTitle,
   img,
 }: Props) => {
@@ -30,7 +32,11 @@ export const Confirmation = ({
         <p>{message}</p>
       </header>
 
-      <Button className={cls.button_confirm} onClick={clickCallback}>
+      <Button
+        className={cls.button_confirm}
+        onClick={clickCallback}
+        disabled={isButtonDisabled}
+      >
         {buttonTitle}
       </Button>
 
