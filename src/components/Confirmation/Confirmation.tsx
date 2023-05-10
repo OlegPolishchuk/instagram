@@ -36,6 +36,7 @@ export const Confirmation = ({
         className={cls.button_confirm}
         onClick={clickCallback}
         disabled={isButtonDisabled}
+        isLoading={isButtonDisabled}
       >
         {buttonTitle}
       </Button>

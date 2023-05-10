@@ -26,7 +26,7 @@ const ConfirmationPage: InferGetStaticPropsType<typeof getStaticProps> = () => {
   }
 
   if (error) {
-    router.push(Routes.auth.VerificationExpired);
+    // router.push(Routes.auth.VerificationExpired);
   }
 
   console.log(isLoading);

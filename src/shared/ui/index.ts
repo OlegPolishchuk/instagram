@@ -6,3 +6,4 @@ export { Form, FormFooter } from './Forms';
 export { Portal } from './Portal/Portal';
 export { BaseModal } from './Modals';
 export { Checkbox } from './Checkbox/Checkbox';
+export { Spinner } from './Spinner/Spinner';

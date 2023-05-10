@@ -2,6 +2,8 @@ import React, { ComponentPropsWithRef, FC, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
+import { Spinner } from '../Spinner/Spinner';
+
 import cls from './Button.module.css';
 
 interface Props extends ComponentPropsWithRef<'button'> {
@@ -9,6 +11,7 @@ interface Props extends ComponentPropsWithRef<'button'> {
   fullwidth?: boolean;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
+  isLoading?: boolean;
 }
 
 export const Button: FC<Props> = ({
@@ -20,6 +23,7 @@ export const Button: FC<Props> = ({
   type,
   children,
   className,
+  isLoading,
   ...restProps
 }) => {
   return (
@@ -38,6 +42,7 @@ export const Button: FC<Props> = ({
       {leftIcon && leftIcon}
       {children}
       {rightIcon && rightIcon}
+      {isLoading && <Spinner />}
     </button>
   );
 };
