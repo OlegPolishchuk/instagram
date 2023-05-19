@@ -20,7 +20,7 @@ const Login: InferGetStaticPropsType<typeof getStaticProps> = () => {
 
   useEffect(() => {
     if (isSuccess && data) {
-      localStorageService.setItem('token', data.accessToken);
+      localStorageService.setToken(data.accessToken);
 
       router.push(Routes.Profile);
     }

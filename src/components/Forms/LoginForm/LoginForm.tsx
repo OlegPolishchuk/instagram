@@ -70,7 +70,7 @@ export const LoginForm = ({ handleSubmitFormCallback, isLoading, disabled }: Pro
 
       <FormFooter>
         <span>{t('form.form_footer.title')}</span>
-        <Link href="/">{t('form.form_footer.link')}</Link>
+        <Link href={Routes.auth.Register}>{t('form.form_footer.link')}</Link>
       </FormFooter>
     </Form>
   );

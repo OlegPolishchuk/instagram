@@ -61,7 +61,7 @@ export const authAPI = api.injectEndpoints({
       query: () => ({
         url: 'auth/me',
         headers: {
-          Authorization: `Bearer ${localStorageService.getToken()}`,
+          // Authorization: `Bearer ${localStorageService.getToken()}`,
         },
       }),
     }),

@@ -99,7 +99,7 @@ export const RegisterForm = ({ submitCallback, isLoading, disabled }: Props) => 
 
         <FormFooter>
           <span>{t('form.form_footer.title')}</span>
-          <Link href="/">{t('form.form_footer.link')}</Link>
+          <Link href={Routes.auth.Login}>{t('form.form_footer.link')}</Link>
         </FormFooter>
       </Form>
 
