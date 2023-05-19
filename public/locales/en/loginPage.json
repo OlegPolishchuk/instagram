@@ -1,6 +1,6 @@
 {
   "form": {
-    "title": "SignIn",
+    "title": "Sign In",
     "input_email": {
       "label": "Email"
     },
@@ -13,7 +13,7 @@
     },
     "form_footer": {
       "title": "Do not have an account?",
-      "link": "Sign un"
+      "link": "Sign up"
     }
   },
   "forgot_password": {

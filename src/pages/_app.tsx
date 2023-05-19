@@ -7,7 +7,7 @@ import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 
 import { useLoader } from '@/shared/hooks';
-import { store } from '@/store/store';
+import { wrapper } from '@/store/store';
 
 import '../styles/nprogress.css';
 
@@ -20,6 +20,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
+  const { store } = wrapper.useWrappedStore(pageProps);
   const getLayout = Component.getLayout ?? (page => page);
 
   useLoader();

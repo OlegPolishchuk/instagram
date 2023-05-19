@@ -27,7 +27,7 @@ const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
 
         <Button>{t('forgot_password.button_title')}</Button>
         <FormFooter>
-          <Link href={Routes.Login.base}>{t('forgot_password.form_footer.link')}</Link>
+          <Link href={Routes.auth.Login}>{t('forgot_password.form_footer.link')}</Link>
         </FormFooter>
       </Form>
     </div>

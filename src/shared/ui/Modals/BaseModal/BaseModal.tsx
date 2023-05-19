@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 
 import { ModalLayout } from './ModalLayout/ModalLayout';
 import { useMount } from './useMount/UseMount';
@@ -11,7 +11,7 @@ interface Props {
   title?: string;
   closeCallback: () => void;
 }
-export const BaseModal = ({ isOpen, title, children, closeCallback }: Props) => {
+export const BaseModal = memo(({ isOpen, title, children, closeCallback }: Props) => {
   const { mounted } = useMount({ opened: isOpen });
 
   if (!mounted) {
@@ -25,4 +25,4 @@ export const BaseModal = ({ isOpen, title, children, closeCallback }: Props) => 
       </ModalLayout>
     </Portal>
   );
-};
+});

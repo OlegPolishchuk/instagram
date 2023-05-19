@@ -25,11 +25,25 @@
   "email_verification": {
     "button_title": "Resend verification link",
     "title": "Email verification link expired",
-    "message": "Looks like the verification link has expired. Not to worry, we can send the link again"
+    "message": "Looks like the verification link has expired. Not to worry, we can send the link again",
+    "modal": {
+      "success": {
+        "title": "Email sent",
+        "message": "We have sent a link to confirm your email to {{userEmail}}"
+      },
+      "error": {
+        "title": "Error"
+      }
+    }
   },
   "email_confirmation": {
     "button_title": "Sign In",
     "title": "Congratulations!",
     "message": "Your email has been confirmed"
+  },
+  "email_sent_modal": {
+    "title": "Email sent",
+    "message": "We have sent a link to confirm your email to {{userEmail}}",
+    "button_confirm_title": "OK"
   }
 }

@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithRef } from 'react';
+import React, { ReactNode } from 'react';
 
 import Image from 'next/image';
 
@@ -13,6 +13,7 @@ interface Props {
   buttonTitle: string;
   img?: string;
   isButtonDisabled?: boolean;
+  children?: ReactNode;
 }
 
 export const Confirmation = ({
@@ -22,6 +23,7 @@ export const Confirmation = ({
   isButtonDisabled,
   buttonTitle,
   img,
+  children,
 }: Props) => {
   const imgSrc = img || 'images/merge_account_mobile.png';
 
@@ -31,6 +33,8 @@ export const Confirmation = ({
         <h1>{title}</h1>
         <p>{message}</p>
       </header>
+
+      {children}
 
       <Button
         className={cls.button_confirm}

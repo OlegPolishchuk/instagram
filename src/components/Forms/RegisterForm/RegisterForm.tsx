@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import { FormValidation, Routes } from '@/shared/constants';
 import { BaseModal, Button, Form, FormFooter, Input } from '@/shared/ui';
 import { SocialAuth } from '@/shared/ui/Forms/Form';
-import { useRegistrationMutation, useGetMeQuery } from '@/store/api';
+import { RegistrationUserFormData, useRegistrationMutation } from '@/store/api';
 
 const schema = yup.object({
   username: yup.string().required().min(FormValidation.minUsernameLength),
@@ -23,15 +23,18 @@ const schema = yup.object({
   }),
 });
 
-type RegisterFormData = yup.InferType<typeof schema>;
+interface Props {
+  submitCallback: (formData: RegistrationUserFormData) => void;
+  isLoading: boolean;
+  disabled: boolean;
+}
 
-export const RegisterForm = () => {
+export type RegisterFormData = yup.InferType<typeof schema>;
+
+export const RegisterForm = ({ submitCallback, isLoading, disabled }: Props) => {
   const router = useRouter();
 
   const [showModal, setShowModal] = useState(false);
-
-  const [registerUser, { isLoading, isSuccess, isUninitialized }] =
-    useRegistrationMutation();
 
   const { t } = useTranslation('registerPage');
 
@@ -44,20 +47,13 @@ export const RegisterForm = () => {
   const onSubmit = async (data: RegisterFormData) => {
     const { password, email, username } = data;
 
-    console.log(`isUninitialized = `, isUninitialized);
-    console.log('isLoading =', isLoading);
-
-    try {
-      await registerUser({ password, email, userName: username });
-    } catch (error) {
-      console.log(error, 'Failed to register new User');
-    }
+    submitCallback({ password, email, userName: username });
   };
 
   const confirmModal = () => {
     setShowModal(false);
 
-    router.push(Routes.Login.base);
+    router.push(Routes.auth.Login);
   };
 
   return (
@@ -70,6 +66,7 @@ export const RegisterForm = () => {
           label={t('form.input_username.label')}
           {...register('username')}
           errorMessage={errors.username?.message}
+          disabled={disabled}
         />
 
         <Input
@@ -77,6 +74,7 @@ export const RegisterForm = () => {
           label={t('form.input_email.label')}
           {...register('email')}
           errorMessage={errors.email?.message}
+          disabled={disabled}
         />
 
         <Input
@@ -84,6 +82,7 @@ export const RegisterForm = () => {
           label={t('form.input_password.label')}
           {...register('password')}
           errorMessage={errors.password?.message}
+          disabled={disabled}
         />
 
         <Input
@@ -91,9 +90,10 @@ export const RegisterForm = () => {
           label={t('form.input_password_confirm.label')}
           {...register('passwordConfirmation')}
           errorMessage={errors.passwordConfirmation?.message}
+          disabled={disabled}
         />
 
-        <Button type="submit" disabled={isLoading}>
+        <Button type="submit" disabled={isLoading || disabled} isLoading={isLoading}>
           {t('form.buttons.signUp')}
         </Button>
 

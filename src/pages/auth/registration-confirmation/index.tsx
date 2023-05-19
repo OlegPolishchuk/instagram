@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
@@ -11,25 +11,24 @@ import { useConfirmEmailMutation } from '@/store/api';
 
 const ConfirmationPage: InferGetStaticPropsType<typeof getStaticProps> = () => {
   const router = useRouter();
+  const confirmationCode = router.query.code;
 
-  const [confirmEmail, { isSuccess, isLoading, error }] = useConfirmEmailMutation();
+  const [confirmEmail, { isLoading, error }] = useConfirmEmailMutation();
 
   const { t } = useTranslation('registerPage');
   const handleClick = async () => {
-    const confirmationCode = router.query.code;
-
-    confirmEmail(confirmationCode as string);
+    router.push(Routes.auth.Login);
   };
 
-  if (isSuccess) {
-    router.push(Routes.auth.RegistrationConfirmation);
-  }
-
   if (error) {
-    // router.push(Routes.auth.VerificationExpired);
+    router.push(Routes.auth.VerificationExpired);
   }
 
-  console.log(isLoading);
+  useEffect(() => {
+    if (confirmationCode) {
+      confirmEmail(confirmationCode as string);
+    }
+  }, [confirmationCode]);
 
   return (
     <Confirmation

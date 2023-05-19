@@ -8,4 +8,5 @@ export const Routes = {
     RegistrationConfirmation: '/auth/registration-confirmation',
   },
   Main: '/',
+  Profile: '/profile',
 };

@@ -1,5 +1,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 
+import clsx from 'clsx';
+import { Inter } from 'next/font/google';
 import { MdOutlineClose } from 'react-icons/md';
 import { CSSTransition } from 'react-transition-group';
 
@@ -31,6 +33,8 @@ interface Props {
   title?: string;
 }
 
+const inter = Inter({ subsets: ['latin'] });
+
 export const ModalLayout = ({ onClose, children, opened, title }: Props) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -56,7 +60,7 @@ export const ModalLayout = ({ onClose, children, opened, title }: Props) => {
   }, []);
 
   return (
-    <div className={cls.container}>
+    <div className={clsx(cls.container, inter.className)}>
       <CSSTransition
         in={animationIn}
         nodeRef={overlayRef}
@@ -82,7 +86,7 @@ export const ModalLayout = ({ onClose, children, opened, title }: Props) => {
       >
         <div ref={contentRef} className={cls.content}>
           <header className={cls.modal_header}>
-            <h2>{title}</h2>
+            <h2 className={cls.title}>{title}</h2>
 
             <MdOutlineClose className={cls.modal_btn_close} onClick={onClose} />
           </header>

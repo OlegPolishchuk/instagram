@@ -3,5 +3,17 @@ export {
   useGetMeQuery,
   useLoginUserMutation,
   useConfirmEmailMutation,
+  useResendEmailMutation,
+  getMe,
+  logout,
+  loginUser,
+  confirmEmail,
+  registration,
 } from './auth/authApi';
-export type { RegistrationUserFormData, LoginUserFormData } from './auth/types';
+
+export type {
+  RegistrationUserFormData,
+  LoginUserFormData,
+  GetMeResponseUserData,
+  AuthError,
+} from './auth/types';

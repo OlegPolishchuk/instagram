@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import clsx from 'clsx';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Inter } from 'next/font/google';
@@ -10,7 +11,7 @@ import { getHeaderLayout } from '@/components';
 import { BaseModal, Button, Checkbox, Input, SearchInput, Textarea } from '@/shared/ui';
 import { getStaticPropsWithLocale } from '@/shared/utils';
 import { useGetMeQuery } from '@/store/api';
-import styles from '@/styles/Home.module.css';
+import cls from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,8 +21,6 @@ const Home: InferGetStaticPropsType<typeof getStaticProps> = () => {
 
   const { data } = useGetMeQuery();
 
-  console.log(data);
-
   return (
     <>
       <Head>
@@ -30,7 +29,7 @@ const Home: InferGetStaticPropsType<typeof getStaticProps> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icons/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
+      <main className={clsx(cls.main, inter.className)}>
         <Input placeholder="Email" label="Email" type="password" />
 
         <Button>Button</Button>

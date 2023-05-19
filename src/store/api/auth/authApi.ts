@@ -1,5 +1,11 @@
-import { LoginUserFormData, RegistrationUserFormData } from './types';
+import {
+  AuthError,
+  GetMeResponseUserData,
+  LoginUserFormData,
+  RegistrationUserFormData,
+} from './types';
 
+import { localStorageService } from '@/shared/services';
 import { api } from '@/store/api/api';
 
 export const authAPI = api.injectEndpoints({
@@ -12,17 +18,18 @@ export const authAPI = api.injectEndpoints({
       }),
     }),
 
-    /*
-    newUserNewUser
-    newUser@mail.oo
-    qwerqwer
-    * */
-
-    loginUser: build.mutation({
-      query: (userData: LoginUserFormData) => ({
+    loginUser: build.mutation<{ accessToken: string }, LoginUserFormData>({
+      query: userData => ({
         url: 'auth/login',
         method: 'POST',
         body: userData,
+      }),
+    }),
+
+    logout: build.mutation({
+      query: () => ({
+        url: 'auth/logout',
+        method: 'Post',
       }),
     }),
 
@@ -34,8 +41,21 @@ export const authAPI = api.injectEndpoints({
       }),
     }),
 
-    getMe: build.query<any, void>({
-      query: () => ({ url: 'auth/me' }),
+    resendEmail: build.mutation({
+      query: (email: string) => ({
+        url: 'auth/registration-email-resending',
+        method: 'POST',
+        body: { email },
+      }),
+    }),
+
+    getMe: build.query<GetMeResponseUserData, void>({
+      query: () => ({
+        url: 'auth/me',
+        headers: {
+          Authorization: `Bearer ${localStorageService.getToken()}`,
+        },
+      }),
     }),
   }),
 });
@@ -45,4 +65,9 @@ export const {
   useGetMeQuery,
   useLoginUserMutation,
   useConfirmEmailMutation,
+  useLogoutMutation,
+  useResendEmailMutation,
 } = authAPI;
+
+export const { getMe, logout, confirmEmail, loginUser, registration, resendEmail } =
+  authAPI.endpoints;
