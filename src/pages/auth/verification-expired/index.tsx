@@ -4,8 +4,9 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
+import { EmailConfirmationModal } from '../components/EmailConfirmationModal';
+
 import { Confirmation, getHeaderLayout } from '@/components';
-import { EmailConfirmationModal } from '@/pages/auth/components/EmailConfirmationModal';
 import { Routes } from '@/shared/constants';
 import { BaseModal, Input } from '@/shared/ui';
 import { getStaticPropsWithLocale } from '@/shared/utils';
