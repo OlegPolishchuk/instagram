@@ -8,5 +8,16 @@ export const Routes = {
     RegistrationConfirmation: '/auth/registration-confirmation',
   },
   Main: '/',
-  Profile: '/profile',
+  Profile: {
+    base: '/profile',
+    home: '/',
+    GeneralInfo: '/profile/generalInformation',
+    Devices: '/profile/devices',
+    AccountManagement: '/profile/accountManagement',
+    MyPayments: '/profile/MyPayments',
+  },
+  Home: '/',
+  Create: '/create',
+  Statistics: '/statistics',
+  Favorites: '/favorites',
 };

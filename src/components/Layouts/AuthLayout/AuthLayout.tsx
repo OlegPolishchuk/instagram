@@ -23,7 +23,7 @@ export const AuthLayout = ({ children }: Props) => {
   useEffect(() => {
     const isUserAuth = localStorageService.getToken();
 
-    if (isUserAuth && isUnprotectedRoute) {
+    if (isUserAuth && !isUnprotectedRoute) {
       if (isSuccess) router.push(currentPath);
     }
 

@@ -1,0 +1,24 @@
+.link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  color: var(--color-light-100);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 24px;
+
+  transition: .2s ease;
+}
+
+.link:hover {
+  color: var(--color-primary-100);
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.active {
+  color: var(--color-primary-500)
+}

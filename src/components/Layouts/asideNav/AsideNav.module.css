@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+
+  padding: 36px 60px;
+}
+
+.main {
+  flex-grow: 1;
+}

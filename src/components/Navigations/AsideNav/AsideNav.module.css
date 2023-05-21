@@ -1,0 +1,38 @@
+.aside {
+  width: 160px
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  min-height: 660px
+}
+
+.links_box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.btn_logout {
+  justify-content: flex-start;
+  align-self: flex-start;
+
+  padding: 0;
+  margin-top: auto;
+
+  color: var(--color-light-100);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .aside {
+    display: none;
+  }
+}

@@ -1,2 +1,3 @@
-export { getHeaderLayout } from './HeaderLayout';
-export { AuthLayout } from './AuthLayout';
+export { getHeaderLayout } from './HeaderLayout/HeaderLayout';
+export { AuthLayout } from './AuthLayout/AuthLayout';
+export { getAsideNavLayout } from './asideNav/AsideNavLayout';
