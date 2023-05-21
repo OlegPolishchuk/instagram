@@ -24,7 +24,7 @@ export const AuthLayout = ({ children }: Props) => {
     const isUserAuth = localStorageService.getToken();
 
     if (isUserAuth && isUnprotectedRoute) {
-      if (isSuccess) router.push(Routes.Profile);
+      if (isSuccess) router.push(currentPath);
     }
 
     if (isError) router.push(Routes.auth.Login);

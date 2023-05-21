@@ -62,6 +62,13 @@ export const authAPI = api.injectEndpoints({
         url: 'auth/me',
       }),
     }),
+
+    deleteProfileTest: build.mutation<void, void>({
+      query: () => ({
+        url: 'users/profile',
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
@@ -73,6 +80,7 @@ export const {
   useLogoutMutation,
   useResendEmailMutation,
   useRecoveryPasswordMutation,
+  useDeleteProfileTestMutation,
 } = authAPI;
 
 export const { getMe, logout, confirmEmail, loginUser, registration, resendEmail } =

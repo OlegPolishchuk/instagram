@@ -4,6 +4,7 @@ export {
   useLoginUserMutation,
   useConfirmEmailMutation,
   useResendEmailMutation,
+  useDeleteProfileTestMutation,
   getMe,
   logout,
   loginUser,
