@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import cls from './style.module.css';
 
+import { Recaptcha } from '@/pages/auth/login/forgot-password/Recaptcha/Recaptcha';
 import { Routes } from '@/shared/constants';
 import { Button, Form, FormFooter, Input } from '@/shared/ui';
 import { checkEmailInput } from '@/shared/utils';
@@ -13,6 +14,7 @@ export const ForgotPasswordForm = () => {
   const { t } = useTranslation('loginPage');
 
   const [emailValue, setEmailValue] = useState({ value: '', error: '' });
+  const [recaptchaToken, setRecaptchaToken] = useState<string | number>('');
 
   const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     setEmailValue(prevState => ({ ...prevState, value: event.target.value }));
@@ -51,7 +53,9 @@ export const ForgotPasswordForm = () => {
         <p className={cls.hint}>{t('forgot_password.hint')}</p>
       </div>
 
-      <div className={cls.captcha}>Captcha</div>
+      <div className={cls.captcha}>
+        <Recaptcha onChange={setRecaptchaToken} />
+      </div>
 
       <Button onClick={handleSendLink}>{t('forgot_password.button_title')}</Button>
       <FormFooter>
