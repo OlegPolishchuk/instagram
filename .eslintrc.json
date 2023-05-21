@@ -30,11 +30,11 @@
     "@typescript-eslint"
   ],
   "rules": {
-
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "react/require-default-props": "off",
+    "react/jsx-no-useless-fragment": "off",
     "import/prefer-default-export": "off",
     "react/function-component-definition": 0,
     "react/jsx-props-no-spreading": 0,

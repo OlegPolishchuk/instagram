@@ -26,7 +26,7 @@ export const authAPI = api.injectEndpoints({
       }),
     }),
 
-    logout: build.mutation({
+    logout: build.mutation<void, void>({
       query: () => ({
         url: 'auth/logout',
         method: 'Post',
@@ -60,9 +60,6 @@ export const authAPI = api.injectEndpoints({
     getMe: build.query<GetMeResponseUserData, void>({
       query: () => ({
         url: 'auth/me',
-        headers: {
-          // Authorization: `Bearer ${localStorageService.getToken()}`,
-        },
       }),
     }),
   }),

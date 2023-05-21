@@ -4,6 +4,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 import { localStorageService } from '@/shared/services';
 
 const BASE_URL = 'https://inctagram-api-git-main-shuliakleonid.vercel.app/api/';
+
 const exceptionUrls = [
   'loginUser',
   'registration',
@@ -21,7 +22,13 @@ export const api = createApi({
         return;
       }
 
-      headers.set('Authorization', `Bearer ${localStorageService.getToken()}`);
+      if (typeof window !== 'undefined') {
+        const token = localStorageService.getToken();
+
+        if (!token) return;
+
+        headers.set('Authorization', `Bearer ${token}`);
+      }
     },
   }),
   extractRehydrationInfo(action, { reducerPath }) {

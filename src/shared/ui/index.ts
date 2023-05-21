@@ -7,3 +7,4 @@ export { Portal } from './Portal/Portal';
 export { BaseModal } from './Modals';
 export { Checkbox } from './Checkbox/Checkbox';
 export { Spinner } from './Spinner/Spinner';
+export { Loader } from './Loader/Loader';

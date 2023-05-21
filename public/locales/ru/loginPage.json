@@ -9,11 +9,11 @@
     },
     "buttons": {
       "forgot_password": "Забыли пароль?",
-      "signIn": "Зарегистрироваться"
+      "signIn": "Войти"
     },
     "form_footer": {
       "title": "Нет аккаунта?",
-      "link": "Войти"
+      "link": "Зарегистрироваться"
     }
   },
   "forgot_password": {

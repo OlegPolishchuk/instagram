@@ -6,6 +6,7 @@ import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 
+import { AuthLayout } from '@/components';
 import { useLoader } from '@/shared/hooks';
 import { wrapper } from '@/store/store';
 
@@ -27,7 +28,9 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <Provider store={store}>
-      <Component {...pageProps} />
+      <AuthLayout>
+        <Component {...pageProps} />
+      </AuthLayout>
     </Provider>,
   );
 }

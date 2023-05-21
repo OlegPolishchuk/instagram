@@ -14,7 +14,9 @@ export const localStorageService = {
   },
 
   getToken() {
-    return JSON.parse(localStorage.getItem('token') || '');
+    const token = localStorage.getItem('token') || null;
+
+    return JSON.parse(token as string);
   },
 
   removeToken() {

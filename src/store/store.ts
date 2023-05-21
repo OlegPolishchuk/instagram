@@ -1,7 +1,10 @@
 import { Action, combineReducers, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
+import { logout } from '@/store/api';
 import { api } from '@/store/api/api';
+
+const UnAuthorizedCode = 401;
 
 const rootReducer = combineReducers({
   [api.reducerPath]: api.reducer,
@@ -10,6 +13,15 @@ const rootReducer = combineReducers({
 export const store = configureStore({
   reducer: rootReducer,
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware),
+  // .concat(() => () => action => {
+  //   if (
+  //     action.payload &&
+  //     action.payload.error &&
+  //     action.payload.error.status === UnAuthorizedCode
+  //   ) {
+  //     store.dispatch(logout.initiate());
+  //   }
+  // }),
 });
 
 const makeStore = () =>
