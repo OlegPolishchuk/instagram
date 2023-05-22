@@ -48,5 +48,6 @@ export const AuthLayout = ({ children }: Props) => {
     return <GlobalLoader />;
   }
 
+  /* Сделать редиррект если пользователь залогинен и переходит на auth роуты */
   return <>{children}</>;
 };

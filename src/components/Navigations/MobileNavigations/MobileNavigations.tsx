@@ -12,6 +12,7 @@ export const MobileNavigations = () => {
   const isLargeScreen = useMediaQuery('(min-width: 769px)');
 
   const [open, setOpen] = useState(false);
+  const [btnClassname, setBtnClassname] = useState('');
 
   const handleToggleNavigation = () => {
     setOpen(prevState => !prevState);
@@ -19,6 +20,7 @@ export const MobileNavigations = () => {
 
   useEffect(() => {
     isLargeScreen && setOpen(false);
+    setBtnClassname(clsx(cls.btn_menu, isLargeScreen && cls.hide, open && cls.btn_active));
   }, [isLargeScreen]);
 
   useEffect(() => {
@@ -35,10 +37,7 @@ export const MobileNavigations = () => {
 
   return (
     <>
-      <MobileMenuBtn
-        onClick={handleToggleNavigation}
-        className={clsx(cls.btn_menu, isLargeScreen && cls.hide, open && cls.btn_active)}
-      />
+      <MobileMenuBtn onClick={handleToggleNavigation} className={btnClassname} />
 
       <div className={clsx(cls.menu, open && cls.open)}>
         <Nav className={cls.mobileNav} />

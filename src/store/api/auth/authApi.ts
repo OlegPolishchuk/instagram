@@ -1,11 +1,5 @@
-import {
-  AuthError,
-  GetMeResponseUserData,
-  LoginUserFormData,
-  RegistrationUserFormData,
-} from './types';
+import { GetMeResponseUserData, LoginUserFormData, RegistrationUserFormData } from './types';
 
-import { localStorageService } from '@/shared/services';
 import { api } from '@/store/api/api';
 
 export const authAPI = api.injectEndpoints({
