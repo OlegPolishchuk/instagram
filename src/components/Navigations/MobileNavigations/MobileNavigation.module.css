@@ -3,32 +3,53 @@
   font-size: 32px;
 
   color: var(--color-light-100);
+
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.btn_active {
+  color: var(--color-primary-500);
 }
 
 .menu {
+  opacity: 0;
+  pointer-events: none;
+
   position: absolute;
   top: 43px;
   right: 15px;
+  z-index: 1;
 
   padding: 12px 24px;
   border-radius: var(--border-radius);
   border: 1px solid var(--color-dark-100);
 
   background: var(--color-dark-500);
+
+  transition: .2s ease;
+}
+
+
+.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .mobileNav {
   gap: 24px;
 }
 
-/*.btn_menu .active {*/
-/*  color: var(--color-primary-500);*/
-/*}*/
 
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
 
 @media (min-width: 769px) {
-  .btn_menu,
-  .menu {
+  .menu,
+  .btn_menu {
     display: none;
   }
 }
