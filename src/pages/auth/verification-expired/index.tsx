@@ -1,7 +1,8 @@
-import React, { ChangeEvent, useState, KeyboardEvent } from 'react';
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 import { EmailConfirmationModal } from '../components/EmailConfirmationModal';
@@ -9,7 +10,6 @@ import { EmailConfirmationModal } from '../components/EmailConfirmationModal';
 import { Confirmation, getHeaderLayout } from '@/components';
 import { Routes } from '@/shared/constants';
 import { BaseModal, Input } from '@/shared/ui';
-import { getStaticPropsWithLocale } from '@/shared/utils';
 import { AuthError, useResendEmailMutation } from '@/store/api';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -98,4 +98,14 @@ const VerificationExpired: InferGetStaticPropsType<typeof getStaticProps> = () =
 VerificationExpired.getLayout = getHeaderLayout;
 export default VerificationExpired;
 
-export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+}: {
+  locale?: string | undefined;
+}) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en')),
+    },
+  };
+};

@@ -12,6 +12,11 @@ const nextConfig = {
       };
     }
 
+    // newConfig.module = {
+    //   ...config.module,
+    //   exprContextCritical: false,
+    // };
+
     return newConfig;
   },
   reactStrictMode: false,

@@ -104,3 +104,9 @@
 .subtle:disabled {
   color: var(--color-primary-900);
 }
+
+.icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}

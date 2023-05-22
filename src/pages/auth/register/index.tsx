@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 import { getHeaderLayout, RegisterForm } from '@/components';
 import { Routes } from '@/shared/constants';
 import { BaseModal } from '@/shared/ui';
-import { getStaticPropsWithLocale } from '@/shared/utils';
 import { RegistrationUserFormData, useRegistrationMutation } from '@/store/api';
 
 const Register: InferGetStaticPropsType<typeof getStaticProps> = () => {
@@ -59,4 +59,14 @@ Register.getLayout = getHeaderLayout;
 
 export default Register;
 
-export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+}: {
+  locale?: string | undefined;
+}) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en')),
+    },
+  };
+};

@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { AsideNav } from '@/components';
 import { getAsideNavLayout } from '@/components/Layouts';
-import { getStaticPropsWithLocale } from '@/shared/utils';
 
 const Profile = () => {
   return <div>Profile page</div>;
@@ -13,4 +12,14 @@ const Profile = () => {
 Profile.getLayout = getAsideNavLayout;
 export default Profile;
 
-export const getServerSideProps: GetServerSideProps = getStaticPropsWithLocale();
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+}: {
+  locale?: string | undefined;
+}) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en')),
+    },
+  };
+};

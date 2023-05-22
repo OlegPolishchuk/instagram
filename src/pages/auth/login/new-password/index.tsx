@@ -3,6 +3,7 @@ import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -11,7 +12,6 @@ import cls from './style.module.css';
 import { getHeaderLayout } from '@/components';
 import { FormValidation } from '@/shared/constants';
 import { Button, Form, Input } from '@/shared/ui';
-import { getStaticPropsWithLocale } from '@/shared/utils';
 
 const schema = yup
   .object({
@@ -69,4 +69,14 @@ export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () =>
 NewPassword.getLayout = getHeaderLayout;
 export default NewPassword;
 
-export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+}: {
+  locale?: string | undefined;
+}) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en')),
+    },
+  };
+};

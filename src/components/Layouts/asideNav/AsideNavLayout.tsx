@@ -3,6 +3,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import cls from './AsideNav.module.css';
 
 import { AsideNav, Header } from '@/components';
+import { MobileNavigations } from '@/components/Navigations';
 
 interface Props {
   children?: ReactNode;
@@ -11,7 +12,10 @@ interface Props {
 const AsideNavLayout = ({ children }: Props) => {
   return (
     <>
-      <Header />
+      <Header>
+        <MobileNavigations />
+      </Header>
+
       <div className={cls.container}>
         <AsideNav />
         <main className={cls.main}>{children}</main>

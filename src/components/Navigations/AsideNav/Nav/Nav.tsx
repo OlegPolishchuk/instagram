@@ -1,5 +1,6 @@
 import React from 'react';
 
+import clsx from 'clsx';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
 import { BiHomeAlt } from 'react-icons/bi';
 import { HiArrowTrendingUp } from 'react-icons/hi2';
@@ -11,9 +12,13 @@ import { NavLink } from '@/components/Navigations/AsideNav/NavLink/NavLink';
 import { Routes } from '@/shared/constants';
 import { Button } from '@/shared/ui';
 
-export const Nav = () => {
+interface Props {
+  className?: string;
+}
+
+export const Nav = ({ className }: Props) => {
   return (
-    <nav className={cls.nav}>
+    <nav className={clsx(cls.nav, className && className)}>
       <div className={cls.links_box}>
         <NavLink href={Routes.Home} icon={<BiHomeAlt />}>
           Home

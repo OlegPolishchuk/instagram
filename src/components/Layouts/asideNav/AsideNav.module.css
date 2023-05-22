@@ -1,9 +1,15 @@
 .container {
   display: flex;
-
-  padding: 36px 60px;
 }
 
 .main {
+  padding: 36px 60px 30px 24px;
   flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

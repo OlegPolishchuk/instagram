@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 import { getHeaderLayout, LoginForm } from '@/components';
 import { Routes } from '@/shared/constants';
 import { localStorageService } from '@/shared/services';
-import { getStaticPropsWithLocale } from '@/shared/utils';
 import { LoginUserFormData, useLoginUserMutation } from '@/store/api';
 
 const Login: InferGetStaticPropsType<typeof getStaticProps> = () => {
@@ -22,7 +22,7 @@ const Login: InferGetStaticPropsType<typeof getStaticProps> = () => {
     if (isSuccess && data) {
       localStorageService.setToken(data.accessToken);
 
-      router.push(Routes.Profile);
+      router.push(Routes.Profile.base).then();
     }
   }, [isSuccess]);
 
@@ -41,4 +41,14 @@ Login.getLayout = getHeaderLayout;
 
 export default Login;
 
-export const getStaticProps: GetStaticProps = getStaticPropsWithLocale();
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+}: {
+  locale?: string | undefined;
+}) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en')),
+    },
+  };
+};
