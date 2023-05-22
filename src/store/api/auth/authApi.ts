@@ -57,7 +57,7 @@ export const authAPI = api.injectEndpoints({
       }),
     }),
 
-    getMe: build.query<GetMeResponseUserData, void>({
+    getMe: build.query<GetMeResponseUserData, boolean | void>({
       query: () => ({
         url: 'auth/me',
       }),

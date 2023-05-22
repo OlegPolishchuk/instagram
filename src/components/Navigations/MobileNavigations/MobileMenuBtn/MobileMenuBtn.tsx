@@ -1,25 +1,16 @@
-import React from 'react';
+import React, { ComponentPropsWithRef } from 'react';
 
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 
-interface Props {
-  onClick: () => void;
-  className?: string;
-}
-export const MobileMenuBtn = ({ className, onClick }: Props) => {
+export const MobileMenuBtn = ({ onClick, className }: ComponentPropsWithRef<'button'>) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
-    onClick();
+    onClick && onClick(event);
   };
 
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      id="mobile-menu-btn"
-      className={className}
-    >
+    <button type="button" onClick={handleClick} id="mobile-menu-btn" className={className}>
       <BiDotsHorizontalRounded />
     </button>
   );

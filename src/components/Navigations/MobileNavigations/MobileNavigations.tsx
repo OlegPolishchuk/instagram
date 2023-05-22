@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
+import { MobileMenuBtn } from './MobileMenuBtn/MobileMenuBtn';
 import cls from './MobileNavigation.module.css';
 
 import { Nav } from '@/components/Navigations/AsideNav/Nav/Nav';
-import { MobileMenuBtn } from '@/components/Navigations/MobileNavigations/MobileMenuBtn/MobileMenuBtn';
 import { useMediaQuery } from '@/shared/hooks';
 
 export const MobileNavigations = () => {
@@ -34,7 +34,7 @@ export const MobileNavigations = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <MobileMenuBtn
         onClick={handleToggleNavigation}
         className={clsx(cls.btn_menu, isLargeScreen && cls.hide, open && cls.btn_active)}
@@ -43,6 +43,6 @@ export const MobileNavigations = () => {
       <div className={clsx(cls.menu, open && cls.open)}>
         <Nav className={cls.mobileNav} />
       </div>
-    </div>
+    </>
   );
 };

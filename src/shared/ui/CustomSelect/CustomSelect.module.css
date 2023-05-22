@@ -1,0 +1,58 @@
+.select {
+  border: 1px solid var(--color-dark-100);
+  border-radius: 2px;
+  outline: none;
+
+  font-size: 14px;
+}
+
+.select_focus {
+  border-color: var(--color-dark-100);
+}
+
+.select_control {
+  min-height: 20px;
+  border: 1px solid transparent;
+
+  background-color: var(--color-dark-100);
+}
+
+.arrow_container {
+  padding: 0 4px;
+}
+
+.currentValue {
+  color: var(--color-light-100);
+}
+
+.separator {
+  opacity: 0;
+}
+
+.menu {
+  border: 1px solid var(--color-dark-100);
+}
+
+.menu_list {
+  padding: 0;
+}
+
+.option {
+  padding: 4px;
+}
+
+.option_active {
+  background: var(--color-dark-100);
+}
+
+.option_selected {
+  background: var(--color-dark-100);
+}
+
+.arrow_container {
+  padding: 0 4px;
+}
+
+.arrow_container div {
+  padding: 0;
+}

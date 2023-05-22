@@ -1,5 +1,6 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 
+import { skipToken } from '@reduxjs/toolkit/query';
 import { useRouter } from 'next/router';
 
 import { GlobalLoader } from '@/components';
@@ -14,23 +15,36 @@ interface Props {
 const unProtectedRoutes = [...Object.values(Routes.auth)];
 
 export const AuthLayout = ({ children }: Props) => {
+  const [skipRequest, setSkipRequest] = useState(true);
+  const [loading, setLoading] = useState(true);
+
   const router = useRouter();
-  const { isError, isSuccess, isLoading } = useGetMeQuery();
+  const { isError, isSuccess } = useGetMeQuery(skipRequest && skipToken);
 
   const currentPath = router.pathname;
-  const isUnprotectedRoute = unProtectedRoutes.includes(currentPath);
+  const protectedRoute = !unProtectedRoutes.includes(currentPath);
 
   useEffect(() => {
-    const isUserAuth = localStorageService.getToken();
+    const isTokenExist = !!localStorageService.getToken();
 
-    if (isUserAuth && !isUnprotectedRoute) {
-      router.push(currentPath).then();
-    } else if (isError && !isUnprotectedRoute) {
+    if ((!isTokenExist && protectedRoute) || isError) {
       router.push(Routes.auth.Login).then();
     }
-  }, [isError, isSuccess, isUnprotectedRoute]);
 
-  if (isLoading) {
+    if (isTokenExist && protectedRoute) {
+      setSkipRequest(false);
+    }
+
+    if (isSuccess || isError) {
+      setLoading(false);
+    }
+
+    if (!protectedRoute) {
+      setLoading(false);
+    }
+  }, [protectedRoute, isError, isSuccess]);
+
+  if (loading) {
     return <GlobalLoader />;
   }
 

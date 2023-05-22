@@ -1,6 +1,7 @@
 .btn_menu {
   padding: 0;
   font-size: 32px;
+  max-height: 32px;
 
   color: var(--color-light-100);
 

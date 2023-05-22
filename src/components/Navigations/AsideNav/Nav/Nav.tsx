@@ -1,14 +1,18 @@
 import React from 'react';
 
 import clsx from 'clsx';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
 import { BiHomeAlt } from 'react-icons/bi';
 import { HiArrowTrendingUp } from 'react-icons/hi2';
 import { MdOutlineLogout } from 'react-icons/md';
 import { RxPerson } from 'react-icons/rx';
 
-import cls from '@/components/Navigations/AsideNav/AsideNav.module.css';
-import { NavLink } from '@/components/Navigations/AsideNav/NavLink/NavLink';
+import cls from '../AsideNav.module.css';
+import { NavLink } from '../NavLink/NavLink';
+
 import { Routes } from '@/shared/constants';
 import { Button } from '@/shared/ui';
 
@@ -17,6 +21,13 @@ interface Props {
 }
 
 export const Nav = ({ className }: Props) => {
+  const router = useRouter();
+
+  const { t } = useTranslation('common');
+
+  const currentUrlParams = router.pathname;
+  const handleChangeLocale = router.locale === 'en' ? 'ru' : 'en';
+
   return (
     <nav className={clsx(cls.nav, className && className)}>
       <div className={cls.links_box}>

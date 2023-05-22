@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 
+import { Controls } from './Controls/Controls';
 import cls from './Header.module.css';
 import { Logo } from './Logo/Logo';
 
@@ -11,7 +12,7 @@ export const Header = ({ children }: Props) => {
     <header className={cls.header}>
       <Logo />
 
-      {children}
+      <Controls>{children}</Controls>
     </header>
   );
 };
