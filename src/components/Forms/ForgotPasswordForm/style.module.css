@@ -1,10 +1,12 @@
 .hint {
+  margin-top: 20px;
   font-size: 14px;
 }
 
 .captcha {
-  padding: 12px 20px;
-  background-color: var(--color-dark-500);
-  border: 1px solid var(--color-dark-300);
-  border-radius: var(--border-radius);
+
+}
+
+.captcha.isError {
+  border-color: var(--color-danger-500);
 }

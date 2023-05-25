@@ -1,16 +1,18 @@
+import 'react-toastify/dist/ReactToastify.css';
+import '../styles/nprogress.css';
 import '@/styles/globals.css';
-import { ReactElement } from 'react';
+
+import React, { ReactElement } from 'react';
 
 import { NextPage } from 'next';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 import { AuthLayout } from '@/components';
 import { useLoader } from '@/shared/hooks';
 import { wrapper } from '@/store/store';
-
-import '../styles/nprogress.css';
 
 export type NextPageWithLayout<P = object> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactElement;
@@ -30,6 +32,19 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
     <Provider store={store}>
       <AuthLayout>
         <Component {...pageProps} />
+
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </AuthLayout>
     </Provider>,
   );

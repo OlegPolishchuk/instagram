@@ -16,13 +16,11 @@ import { Button, Form, Input } from '@/shared/ui';
 const schema = yup
   .object({
     password: yup.string().required().min(FormValidation.minPasswordLength),
-    passwordConfirmation: yup
-      .string()
-      .test('', "passwords don't match", function (value) {
-        const { password } = this.parent;
+    passwordConfirmation: yup.string().test('', "passwords don't match", function (value) {
+      const { password } = this.parent;
 
-        return value === password;
-      }),
+      return value === password;
+    }),
   })
   .required();
 

@@ -1,5 +1,5 @@
 import { FormValidation } from '@/shared/constants';
 
 export const checkEmailInput = (value: string) => {
-  return true;
+  return FormValidation.emailRegExp.test(value);
 };

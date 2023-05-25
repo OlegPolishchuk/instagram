@@ -28,9 +28,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
     };
 
     return (
-      <div
-        className={clsx(cls.wrapper, disabled && cls.disabled, errorMessage && cls.error)}
-      >
+      <div className={clsx(cls.wrapper, disabled && cls.disabled, errorMessage && cls.error)}>
         <label className={cls.label}>
           {label}:
           <input
@@ -41,16 +39,14 @@ export const Input = forwardRef<HTMLInputElement, Props>(
             disabled={disabled}
             {...restProps}
           />
+          {type === 'password' &&
+            (showPassword ? (
+              <BsEyeSlashFill className={cls.icon} onClick={handleToggleSowPassword} />
+            ) : (
+              <BsEyeFill className={cls.icon} onClick={handleToggleSowPassword} />
+            ))}
+          {errorMessage && <span className={cls.errorMessage}>{errorMessage}</span>}
         </label>
-
-        {type === 'password' &&
-          (showPassword ? (
-            <BsEyeSlashFill className={cls.icon} onClick={handleToggleSowPassword} />
-          ) : (
-            <BsEyeFill className={cls.icon} onClick={handleToggleSowPassword} />
-          ))}
-
-        {errorMessage && <span className={cls.errorMessage}>{errorMessage}</span>}
       </div>
     );
   },

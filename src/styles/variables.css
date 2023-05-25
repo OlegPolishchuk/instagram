@@ -34,4 +34,6 @@
   --color-light-500: #EDF3FA;
   --color-light-700: #D5DAE0;
   --color-light-900: #BDC1C7;
+
+  --toastify-color-error: var(--color-danger-700);
 }

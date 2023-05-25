@@ -32,5 +32,10 @@
       "input_password_confirm": "Повторите пароль",
       "button_title": "Создать новый пароль"
     }
+  },
+  "modal": {
+    "title": "Письмо отправлено",
+    "message": "Мы отправили письмо с подтверждением на почту",
+    "button_confirm_title": "OK"
   }
 }

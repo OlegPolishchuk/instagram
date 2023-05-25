@@ -32,5 +32,10 @@
       "input_password_confirm": "Password Confirmation",
       "button_title": "Create New Password"
     }
+  },
+  "modal": {
+    "title": "Email sent",
+    "message": "We have sent a link to confirm your email",
+    "button_confirm_title": "OK"
   }
 }

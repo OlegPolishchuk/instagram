@@ -20,13 +20,14 @@ export const MobileNavigations = () => {
 
   useEffect(() => {
     isLargeScreen && setOpen(false);
-    setBtnClassname(clsx(cls.btn_menu, isLargeScreen && cls.hide, open && cls.btn_active));
-  }, [isLargeScreen]);
+
+    !isLargeScreen && setBtnClassname(clsx(cls.btn_menu, isLargeScreen && cls.hide));
+
+    open && setBtnClassname(prevState => clsx(prevState, cls.btn_active));
+  }, [isLargeScreen, open]);
 
   useEffect(() => {
-    const handleWindowClick = () => {
-      setOpen(false);
-    };
+    const handleWindowClick = () => setOpen(false);
 
     window.addEventListener('click', handleWindowClick);
 
