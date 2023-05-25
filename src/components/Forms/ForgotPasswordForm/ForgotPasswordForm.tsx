@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
