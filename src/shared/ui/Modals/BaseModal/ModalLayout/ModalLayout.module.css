@@ -72,9 +72,28 @@
   padding: 24px;
 }
 
+.modal_content h1 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .modal_footer {
   display: flex;
   flex-direction: row-reverse;
 
   padding: 0 24px 36px 24px;
+}
+
+.success {
+  border-color: var(--color-success-500);
+  box-shadow: rgba(20, 204, 112, 0.05) 0 0.0625rem 0.1875rem,
+              rgba(20, 204, 112, 0.05) 0 0.625rem 0.9375rem -0.3125rem,
+              rgba(20, 204, 112, 0.04) 0 0;
+}
+
+.error {
+  border-color: var(--color-danger-500);
+  box-shadow: rgba(204, 20, 57, 0.05) 0 0.0625rem 0.1875rem,
+              rgba(204, 20, 57, 0.05) 0 0.625rem 0.9375rem -0.3125rem,
+              rgba(204, 20, 57, 0.04) 0 0;
 }

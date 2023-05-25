@@ -31,11 +31,29 @@
       "input_password": "New Password",
       "input_password_confirm": "Password Confirmation",
       "button_title": "Create New Password"
+    },
+    "modal": {
+      "success": {
+        "title": "Congratulations!",
+        "message": "New password has been applied!",
+        "button_title": "To Login"
+      },
+      "error": {
+        "title": "Error!",
+        "message": "Oops! Looks like something went wrong. Please, try to get verification link once again!",
+        "button_title": "Ok"
+      }
+    },
+    "toaster": {
+      "message": "Oop! Something wrong with recovery link. Please, try to get recovery link one more time"
     }
   },
   "modal": {
     "title": "Email sent",
     "message": "We have sent a link to confirm your email",
     "button_confirm_title": "OK"
+  },
+  "toaster": {
+    "message": "Something went wrong! Please try again"
   }
 }

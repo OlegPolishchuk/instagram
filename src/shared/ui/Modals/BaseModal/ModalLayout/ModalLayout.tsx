@@ -31,15 +31,22 @@ interface Props {
   children: ReactNode;
   opened: boolean;
   title?: string;
+  status?: 'error' | 'success';
 }
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const ModalLayout = ({ onClose, children, opened, title }: Props) => {
+export const ModalLayout = ({ onClose, children, opened, title, status }: Props) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [animationIn, setAnimationIn] = useState(false);
+
+  let statusClassName = '';
+
+  if (status) {
+    statusClassName = status === 'success' ? cls.success : cls.error;
+  }
 
   useEffect(() => {
     setAnimationIn(opened);
@@ -69,12 +76,7 @@ export const ModalLayout = ({ onClose, children, opened, title }: Props) => {
         unmountOnExit
         classNames={overlayAnimation}
       >
-        <div
-          role="presentation"
-          ref={overlayRef}
-          className={cls.overlay}
-          onClick={onClose}
-        />
+        <div role="presentation" ref={overlayRef} className={cls.overlay} onClick={onClose} />
       </CSSTransition>
       <CSSTransition
         in={animationIn}
@@ -84,7 +86,7 @@ export const ModalLayout = ({ onClose, children, opened, title }: Props) => {
         unmountOnExit
         classNames={contentAnimation}
       >
-        <div ref={contentRef} className={cls.content}>
+        <div ref={contentRef} className={clsx(statusClassName, cls.content)}>
           <header className={cls.modal_header}>
             <h2 className={cls.title}>{title}</h2>
 

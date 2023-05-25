@@ -10,8 +10,9 @@ interface Props {
   isOpen: boolean;
   title?: string;
   closeCallback: () => void;
+  status?: 'error' | 'success';
 }
-export const BaseModal = memo(({ isOpen, title, children, closeCallback }: Props) => {
+export const BaseModal = memo(({ isOpen, title, children, closeCallback, status }: Props) => {
   const { mounted } = useMount({ opened: isOpen });
 
   if (!mounted) {
@@ -20,7 +21,7 @@ export const BaseModal = memo(({ isOpen, title, children, closeCallback }: Props
 
   return (
     <Portal>
-      <ModalLayout onClose={closeCallback} opened={isOpen} title={title}>
+      <ModalLayout onClose={closeCallback} opened={isOpen} title={title} status={status}>
         {children}
       </ModalLayout>
     </Portal>

@@ -51,6 +51,14 @@ export const authAPI = api.injectEndpoints({
       }),
     }),
 
+    newPassword: build.mutation({
+      query: ({ newPassword, recoveryCode }: { newPassword: string; recoveryCode: string }) => ({
+        url: 'auth/new-password',
+        method: 'POST',
+        body: { newPassword, recoveryCode },
+      }),
+    }),
+
     getMe: build.query<GetMeResponseUserData, boolean | void>({
       query: () => ({
         url: 'auth/me',
@@ -75,6 +83,7 @@ export const {
   useResendEmailMutation,
   useRecoveryPasswordMutation,
   useDeleteProfileTestMutation,
+  useNewPasswordMutation,
 } = authAPI;
 
 export const { getMe, logout, confirmEmail, loginUser, registration, resendEmail } =

@@ -29,7 +29,7 @@ const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
   };
 
   if (isError) {
-    toast.error('Something went wrong! Please try again');
+    toast.error(t('toaster.message'));
   }
 
   return (
@@ -38,7 +38,12 @@ const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
         <ForgotPasswordForm onSubmit={handleFormSubmit} isLoading={isLoading} />
       </div>
 
-      <BaseModal isOpen={isSuccess} closeCallback={handleCloseModal} title={t('modal.title')}>
+      <BaseModal
+        isOpen={isSuccess}
+        status={isSuccess ? 'success' : 'error'}
+        closeCallback={handleCloseModal}
+        title={t('modal.title')}
+      >
         <h1>{t('modal.message')}</h1>
       </BaseModal>
     </>
