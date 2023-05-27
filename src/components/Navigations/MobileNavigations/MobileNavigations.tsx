@@ -12,7 +12,7 @@ export const MobileNavigations = () => {
   const isLargeScreen = useMediaQuery('(min-width: 769px)');
 
   const [open, setOpen] = useState(false);
-  const [btnClassname, setBtnClassname] = useState('');
+  const [btnClassname, setBtnClassname] = useState(cls.btn_menu);
 
   const handleToggleNavigation = () => {
     setOpen(prevState => !prevState);
