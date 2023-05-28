@@ -1,36 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { localStorageService } from '@/shared/services';
+import { BaseQueryWithAuth } from '@/store/api/interseptors/tokenRefreshInterseptor';
 
-const BASE_URL = 'https://inctagram-api-git-main-shuliakleonid.vercel.app/api/';
-
-const exceptionUrls = [
-  'loginUser',
-  'registration',
-  'recoveryPassword',
-  'resendEmail',
-  'confirmEmail',
-];
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const api = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
-    prepareHeaders: (headers, { endpoint }) => {
-      if (exceptionUrls.includes(endpoint)) {
-        return;
-      }
-
-      if (typeof window !== 'undefined') {
-        const token = localStorageService.getToken();
-
-        if (!token) return;
-
-        headers.set('Authorization', `Bearer ${token}`);
-      }
-    },
-  }),
+  baseQuery: BaseQueryWithAuth(
+    fetchBaseQuery({
+      baseUrl: BASE_URL,
+      credentials: 'include',
+    }),
+  ),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
       return action.payload[reducerPath];

@@ -55,7 +55,7 @@ const VerificationExpired: InferGetStaticPropsType<typeof getStaticProps> = () =
       <BaseModal
         isOpen={isError}
         title={t('email_verification.modal.error.title')}
-        closeCallback={handleRedirectToLogin}
+        confirmCallback={handleRedirectToLogin}
       >
         <p>{err.data.messages[0] && err.data.messages[0].message}</p>
       </BaseModal>

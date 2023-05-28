@@ -1,1 +1,2 @@
-export * from './checkEmailInput';
+export { checkEmailInput } from './checkEmailInput';
+export { isTokenExpired } from './isTokenExpired';

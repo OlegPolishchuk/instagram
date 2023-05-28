@@ -16,7 +16,7 @@ export const EmailConfirmationModal = ({ isOpen, closeCallback, email }: Props) 
     <BaseModal
       isOpen={isOpen}
       title={t('email_verification.modal.error.title')}
-      closeCallback={closeCallback}
+      confirmCallback={closeCallback}
     >
       <h1>{t('email_verification.modal.success.message', { userEmail: email })}</h1>
     </BaseModal>

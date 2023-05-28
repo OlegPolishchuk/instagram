@@ -80,6 +80,7 @@
 .modal_footer {
   display: flex;
   flex-direction: row-reverse;
+  gap: 10px;
 
   padding: 0 24px 36px 24px;
 }

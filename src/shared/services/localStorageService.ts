@@ -1,5 +1,5 @@
 export const localStorageService = {
-  setItem(title: string, item: any) {
+  setItem(title: string, item: unknown) {
     localStorage.setItem(title, JSON.stringify(item));
   },
 
@@ -14,7 +14,11 @@ export const localStorageService = {
   },
 
   getToken() {
-    const token = localStorage.getItem('token') || null;
+    let token = localStorage.getItem('token') || null;
+
+    if (token === 'undefined') {
+      token = null;
+    }
 
     return JSON.parse(token as string);
   },

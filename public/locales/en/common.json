@@ -1,3 +1,19 @@
 {
-  "changeLocaleTo": "ru"
+  "changeLocaleTo": "ru",
+  "nav": {
+    "logout_button": "Logout",
+    "home": "Home",
+    "create": "Create",
+    "profile": "My Profile",
+    "statistics": "Statistics"
+  },
+  "logout_button": {
+    "modal": {
+      "title": "Logout",
+      "message": "Are you really want to log out of your account?"
+    },
+    "toast": {
+      "error_message": "Something went wrong! Please, try again!"
+    }
+  }
 }

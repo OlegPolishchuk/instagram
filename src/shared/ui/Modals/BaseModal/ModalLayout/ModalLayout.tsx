@@ -27,16 +27,30 @@ const contentAnimation = {
 export const ANIMATION_TIME = 300;
 
 interface Props {
-  onClose: () => void;
+  onClose?: () => void;
+  onConfirm: () => void;
   children: ReactNode;
+  confirmBtnTitle?: string;
   opened: boolean;
   title?: string;
   status?: 'error' | 'success';
+  isLoading?: boolean;
+  buttons?: ReactNode;
 }
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const ModalLayout = ({ onClose, children, opened, title, status }: Props) => {
+export const ModalLayout = ({
+  onClose,
+  onConfirm,
+  children,
+  isLoading,
+  opened,
+  title,
+  confirmBtnTitle,
+  status,
+  buttons,
+}: Props) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -48,6 +62,16 @@ export const ModalLayout = ({ onClose, children, opened, title, status }: Props)
     statusClassName = status === 'success' ? cls.success : cls.error;
   }
 
+  const handleClose = () => {
+    if (onClose) {
+      onClose();
+
+      return;
+    }
+
+    onConfirm();
+  };
+
   useEffect(() => {
     setAnimationIn(opened);
   }, [opened]);
@@ -55,7 +79,7 @@ export const ModalLayout = ({ onClose, children, opened, title, status }: Props)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        onClose();
+        onConfirm();
       }
     };
 
@@ -76,7 +100,12 @@ export const ModalLayout = ({ onClose, children, opened, title, status }: Props)
         unmountOnExit
         classNames={overlayAnimation}
       >
-        <div role="presentation" ref={overlayRef} className={cls.overlay} onClick={onClose} />
+        <div
+          role="presentation"
+          ref={overlayRef}
+          className={cls.overlay}
+          onClick={onClose}
+        />
       </CSSTransition>
       <CSSTransition
         in={animationIn}
@@ -90,13 +119,17 @@ export const ModalLayout = ({ onClose, children, opened, title, status }: Props)
           <header className={cls.modal_header}>
             <h2 className={cls.title}>{title}</h2>
 
-            <MdOutlineClose className={cls.modal_btn_close} onClick={onClose} />
+            <MdOutlineClose className={cls.modal_btn_close} onClick={handleClose} />
           </header>
 
           <div className={cls.modal_content}>{children}</div>
 
           <footer className={cls.modal_footer}>
-            <Button onClick={onClose}>OK</Button>
+            <Button onClick={onConfirm} isLoading={isLoading}>
+              {confirmBtnTitle || 'OK'}
+            </Button>
+
+            {buttons && <>{buttons}</>}
           </footer>
         </div>
       </CSSTransition>

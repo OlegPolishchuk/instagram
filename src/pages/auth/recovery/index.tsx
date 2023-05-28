@@ -1,20 +1,17 @@
 import React from 'react';
 
-import { yupResolver } from '@hookform/resolvers/yup';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import * as yup from 'yup';
 
 import cls from './style.module.css';
 
 import { getHeaderLayout } from '@/components';
 import { RecoveryForm } from '@/pages/auth/recovery/recoveryForm/RecoveryForm';
-import { FormValidation, Routes } from '@/shared/constants';
-import { BaseModal, Button, Form, Input } from '@/shared/ui';
+import { Routes } from '@/shared/constants';
+import { BaseModal } from '@/shared/ui';
 import { useNewPasswordMutation } from '@/store/api/auth/authApi';
 
 export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
@@ -32,10 +29,6 @@ export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () =>
   const modalMessage = isError
     ? t('new_password.modal.error.message')
     : t('new_password.modal.success.message');
-  //
-  // const modalButtonTitle = isError
-  //   ? t('new_password.modal.error.button_title')
-  //   : t('new_password.modal.success.button_title');
 
   if (isError) {
     toast.error(t('new_password.toaster.message'));
@@ -56,7 +49,7 @@ export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () =>
       <BaseModal
         isOpen={isSuccess || isError}
         status={isSuccess ? 'success' : 'error'}
-        closeCallback={() =>
+        confirmCallback={() =>
           handleNavigate(isError ? Routes.auth.ForgotPassword : Routes.auth.Login)
         }
         title={modalTitle}

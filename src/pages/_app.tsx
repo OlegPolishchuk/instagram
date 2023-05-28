@@ -28,25 +28,27 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
 
   useLoader();
 
-  return getLayout(
+  return (
     <Provider store={store}>
-      <AuthLayout>
-        <Component {...pageProps} />
+      {getLayout(
+        <AuthLayout>
+          <Component {...pageProps} />
 
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
-      </AuthLayout>
-    </Provider>,
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+        </AuthLayout>,
+      )}
+    </Provider>
   );
 }
 

@@ -1,3 +1,19 @@
 {
-  "changeLocaleTo": "en"
+  "changeLocaleTo": "en",
+  "nav": {
+    "logout_button": "Выйти",
+    "home": "Главная",
+    "create": "Создать",
+    "profile": "Мой профиль",
+    "statistics": "Статистика"
+  },
+  "logout_button": {
+    "modal": {
+      "title": "Выйти",
+      "message": "Вы действительно хотите выйти?"
+    },
+    "toast": {
+      "error_message": "Что-то пошло не так! Пожалуйста, попробуйте еще раз!"
+    }
+  }
 }

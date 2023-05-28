@@ -4,3 +4,4 @@ export { Confirmation } from './Confirmation/Confirmation';
 export { getHeaderLayout, AuthLayout } from './Layouts';
 export { GlobalLoader } from './GlobalLoader/GlobalLoader';
 export { AsideNav } from './Navigations';
+export { LogoutModal } from './LogoutModal/LogoutModal';

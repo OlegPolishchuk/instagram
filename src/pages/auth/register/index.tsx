@@ -46,7 +46,7 @@ const Register: InferGetStaticPropsType<typeof getStaticProps> = () => {
       />
       <BaseModal
         isOpen={showModal}
-        closeCallback={handleCloseModal}
+        confirmCallback={handleCloseModal}
         title={t('email_sent_modal.title')}
       >
         <h1>{t('email_sent_modal.message', { userEmail })}</h1>

@@ -9,21 +9,46 @@ interface Props {
   children?: ReactNode;
   isOpen: boolean;
   title?: string;
-  closeCallback: () => void;
+  closeCallback?: () => void;
+  confirmCallback: () => void;
   status?: 'error' | 'success';
+  isLoading?: boolean;
+  buttons?: ReactNode;
+  confirmBtnTitle?: string;
 }
-export const BaseModal = memo(({ isOpen, title, children, closeCallback, status }: Props) => {
-  const { mounted } = useMount({ opened: isOpen });
+export const BaseModal = memo(
+  ({
+    isOpen,
+    title,
+    isLoading,
+    children,
+    closeCallback,
+    confirmCallback,
+    confirmBtnTitle,
+    buttons,
+    status,
+  }: Props) => {
+    const { mounted } = useMount({ opened: isOpen });
 
-  if (!mounted) {
-    return null;
-  }
+    if (!mounted) {
+      return null;
+    }
 
-  return (
-    <Portal>
-      <ModalLayout onClose={closeCallback} opened={isOpen} title={title} status={status}>
-        {children}
-      </ModalLayout>
-    </Portal>
-  );
-});
+    return (
+      <Portal>
+        <ModalLayout
+          onClose={closeCallback}
+          onConfirm={confirmCallback}
+          opened={isOpen}
+          title={title}
+          status={status}
+          isLoading={isLoading}
+          buttons={buttons}
+          confirmBtnTitle={confirmBtnTitle}
+        >
+          {children}
+        </ModalLayout>
+      </Portal>
+    );
+  },
+);

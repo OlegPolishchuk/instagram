@@ -5,11 +5,15 @@ export {
   useConfirmEmailMutation,
   useResendEmailMutation,
   useDeleteProfileTestMutation,
+  useLogoutMutation,
+  useNewPasswordMutation,
+  useRecoveryPasswordMutation,
   getMe,
   logout,
   loginUser,
   confirmEmail,
   registration,
+  updateTokens,
 } from './auth/authApi';
 
 export type {

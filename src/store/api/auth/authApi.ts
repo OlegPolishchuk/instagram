@@ -1,4 +1,8 @@
-import { GetMeResponseUserData, LoginUserFormData, RegistrationUserFormData } from './types';
+import {
+  GetMeResponseUserData,
+  LoginUserFormData,
+  RegistrationUserFormData,
+} from './types';
 
 import { api } from '@/store/api/api';
 
@@ -52,7 +56,13 @@ export const authAPI = api.injectEndpoints({
     }),
 
     newPassword: build.mutation({
-      query: ({ newPassword, recoveryCode }: { newPassword: string; recoveryCode: string }) => ({
+      query: ({
+        newPassword,
+        recoveryCode,
+      }: {
+        newPassword: string;
+        recoveryCode: string;
+      }) => ({
         url: 'auth/new-password',
         method: 'POST',
         body: { newPassword, recoveryCode },
@@ -71,6 +81,13 @@ export const authAPI = api.injectEndpoints({
         method: 'DELETE',
       }),
     }),
+
+    updateTokens: build.mutation<{ accessToken: string }, void>({
+      query: () => ({
+        url: 'auth/update-tokens',
+        method: 'POST',
+      }),
+    }),
   }),
 });
 
@@ -86,5 +103,12 @@ export const {
   useNewPasswordMutation,
 } = authAPI;
 
-export const { getMe, logout, confirmEmail, loginUser, registration, resendEmail } =
-  authAPI.endpoints;
+export const {
+  getMe,
+  logout,
+  confirmEmail,
+  loginUser,
+  registration,
+  resendEmail,
+  updateTokens,
+} = authAPI.endpoints;

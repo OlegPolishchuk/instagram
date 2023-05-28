@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
 import { getHeaderLayout, LoginForm } from '@/components';
 import { Routes } from '@/shared/constants';
@@ -11,12 +13,17 @@ import { LoginUserFormData, useLoginUserMutation } from '@/store/api';
 
 const Login: InferGetStaticPropsType<typeof getStaticProps> = () => {
   const router = useRouter();
+  const { t } = useTranslation('loginPage');
 
-  const [handleLogin, { isLoading, isSuccess, data }] = useLoginUserMutation();
+  const [handleLogin, { isLoading, isSuccess, isError, data }] = useLoginUserMutation();
 
   const handleSubmitForm = (formData: LoginUserFormData) => {
     handleLogin(formData);
   };
+
+  if (isError) {
+    toast.error(t('toaster.message'));
+  }
 
   useEffect(() => {
     if (isSuccess && data) {
