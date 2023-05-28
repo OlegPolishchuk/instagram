@@ -125,7 +125,7 @@ export const ModalLayout = ({
           <div className={cls.modal_content}>{children}</div>
 
           <footer className={cls.modal_footer}>
-            <Button onClick={onConfirm} isLoading={isLoading}>
+            <Button onClick={onConfirm} isLoading={isLoading} disabled={isLoading}>
               {confirmBtnTitle || 'OK'}
             </Button>
 
