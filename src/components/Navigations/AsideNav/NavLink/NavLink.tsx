@@ -10,16 +10,28 @@ interface Props {
   href: string;
   children?: ReactNode;
   icon?: ReactNode;
+  className?: string;
+  activeClassName?: string;
 }
-export const NavLink = ({ href, children, icon }: Props) => {
+export const NavLink = ({ href, children, icon, className, activeClassName }: Props) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
-  const LinkCLassName = href === currentPath ? clsx(cls.active, cls.link) : cls.link;
+  const isActive = (href: string) => {
+    const pathNameList = currentPath.split('/');
+    const endpoint = `/${href.split('/').reverse()[0]}`;
+    const parentPath = `/${pathNameList[1]}`;
+
+    return endpoint === parentPath || currentPath === href;
+  };
+
+  const LinkCLassName = isActive(href)
+    ? clsx(cls.link, className, cls.active, activeClassName)
+    : clsx(cls.link, className);
 
   return (
     <Link href={href} className={LinkCLassName}>
-      <div className={cls.icon}>{icon}</div>
+      {icon && <div className={cls.icon}>{icon}</div>}
       <span>{children}</span>
     </Link>
   );

@@ -11,11 +11,12 @@ export const Routes = {
   Main: '/',
   Profile: {
     base: '/profile',
-    home: '/',
-    GeneralInfo: '/profile/generalInformation',
-    Devices: '/profile/devices',
-    AccountManagement: '/profile/accountManagement',
-    MyPayments: '/profile/MyPayments',
+    settings: {
+      GeneralInfo: '/profile/settings/general-information',
+      Devices: '/profile/settings/devices',
+      AccountManagement: '/profile/settings/account-management',
+      MyPayments: '/profile/settings/my-payments',
+    },
   },
   Home: '/home',
   Create: '/create',

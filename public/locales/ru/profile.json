@@ -1,0 +1,16 @@
+{
+  "button_settings": {
+    "title": "Редактировать"
+  },
+  "profile_data": {
+    "subscriptions": "Подписки",
+    "subscribers": "Подписчики",
+    "publications": "Публикации"
+  },
+  "settings": {
+    "GeneralInfo": "Общая Информация",
+    "Devices": "Устройства",
+    "AccountManagement": "Управление аккаунтом",
+    "MyPayments": "Платежи"
+  }
+}

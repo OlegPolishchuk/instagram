@@ -1,0 +1,16 @@
+{
+  "button_settings": {
+    "title": "Profile Settings"
+  },
+  "profile_data": {
+    "subscriptions": "Subscriptions",
+    "subscribers": "Subscribers",
+    "publications": "Publications"
+  },
+  "settings": {
+    "GeneralInfo": "General Information",
+    "Devices": "Devices",
+    "AccountManagement": "Account Management",
+    "MyPayments": "My Payments"
+  }
+}
