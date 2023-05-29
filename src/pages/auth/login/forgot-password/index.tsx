@@ -20,7 +20,13 @@ const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
 
   const { t } = useTranslation('loginPage');
 
-  const handleFormSubmit = ({ email, recaptcha }: { email: string; recaptcha: string }) => {
+  const handleFormSubmit = ({
+    email,
+    recaptcha,
+  }: {
+    email: string;
+    recaptcha: string;
+  }) => {
     handleSend({ email, recaptcha });
   };
 
@@ -41,7 +47,7 @@ const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
       <BaseModal
         isOpen={isSuccess}
         status={isSuccess ? 'success' : 'error'}
-        closeCallback={handleCloseModal}
+        confirmCallback={handleCloseModal}
         title={t('modal.title')}
       >
         <h1>{t('modal.message')}</h1>
