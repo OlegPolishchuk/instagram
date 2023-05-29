@@ -39,9 +39,12 @@ export const Button: FC<Props> = ({
       disabled={disabled}
       {...restProps}
     >
-      <p className={cls.icon}> {leftIcon && leftIcon}</p>
+      {leftIcon && <p className={cls.icon}> {leftIcon}</p>}
+
       {children}
-      <p className={cls.icon}>{rightIcon && rightIcon}</p>
+
+      {rightIcon && <p className={cls.icon}>{rightIcon}</p>}
+
       {isLoading && <Spinner />}
     </button>
   );

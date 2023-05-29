@@ -10,7 +10,7 @@ interface Props {
 export const Post = ({ url }: Props) => {
   return (
     <div className={cls.post}>
-      <Image src={url} alt="" fill />
+      <Image className={cls.image} src={url} alt="" fill />
     </div>
   );
 };

@@ -53,6 +53,7 @@
 
 .default:hover {
   color: var(--color-dark-300);
+  background-color: var(--color-light-500);
 }
 
 .default:disabled {

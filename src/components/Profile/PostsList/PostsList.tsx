@@ -15,7 +15,7 @@ export const PostsList = () => {
   return (
     <div className={cls.container}>
       {data.map(photo => (
-        <Post url={photo.url} />
+        <Post key={photo.id} url={photo.url} />
       ))}
     </div>
   );

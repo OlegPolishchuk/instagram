@@ -1,26 +1,35 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(234px, 234px));
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
   gap: 12px;
   row-gap: 12px;
 }
 
 .post {
-  width: 234px;
-  height: 228px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   position: relative;
+  overflow: hidden;
+
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.post:before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.image:hover {
+  transform: scale(1.1);
 }
 
 
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
-  }
-
-  .post {
-    width: 108px;
-    height: 108px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
