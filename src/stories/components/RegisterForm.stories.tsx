@@ -10,6 +10,10 @@ const meta: Meta<typeof Form> = {
 export default meta;
 type Story = StoryObj<typeof Form>;
 
+const handleSubmit = () => {
+  console.log('do something');
+};
+
 export const RegisterForm: Story = {
-  render: () => <Form />,
+  render: () => <Form submitCallback={handleSubmit} />,
 };

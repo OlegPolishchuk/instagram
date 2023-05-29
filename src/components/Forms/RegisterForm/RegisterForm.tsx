@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import { FormValidation, Routes } from '@/shared/constants';
 import { BaseModal, Button, Form, FormFooter, Input } from '@/shared/ui';
 import { SocialAuth } from '@/shared/ui/Forms/Form';
-import { RegistrationUserFormData, useRegistrationMutation } from '@/store/api';
+import { RegistrationUserFormData } from '@/store/api';
 
 const schema = yup.object({
   username: yup.string().required().min(FormValidation.minUsernameLength),
@@ -25,8 +25,8 @@ const schema = yup.object({
 
 interface Props {
   submitCallback: (formData: RegistrationUserFormData) => void;
-  isLoading: boolean;
-  disabled: boolean;
+  isLoading?: boolean;
+  disabled?: boolean;
 }
 
 export type RegisterFormData = yup.InferType<typeof schema>;
