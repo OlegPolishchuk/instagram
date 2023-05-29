@@ -17,7 +17,7 @@ export const Routes = {
     AccountManagement: '/profile/accountManagement',
     MyPayments: '/profile/MyPayments',
   },
-  Home: '/',
+  Home: '/home',
   Create: '/create',
   Statistics: '/statistics',
   Favorites: '/favorites',

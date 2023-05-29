@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  gap: 38px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.button_settings {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.button_settings_smallScreen {
+  align-self: flex-end;
+}
+
+.description_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subscriptions {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 72px;
+
+  font-size: 14px;
+  text-align: center;
+}
+
+
+.item_number {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 992px) {
+  .subscriptions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .description_header {
+   justify-content: center;
+ }
+
+  .description_aboutMe {
+    display: none;
+  }
+
+  .profile_description {
+    width: 100%;
+  }
+}

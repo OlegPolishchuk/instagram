@@ -5,7 +5,8 @@
     "home": "Главная",
     "create": "Создать",
     "profile": "Мой профиль",
-    "statistics": "Статистика"
+    "statistics": "Статистика",
+    "favorites": "Избранное"
   },
   "logout_button": {
     "modal": {

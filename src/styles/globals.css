@@ -76,3 +76,8 @@ select:-webkit-autofill:focus {
   justify-content: center;
   align-items: center;
 }
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}

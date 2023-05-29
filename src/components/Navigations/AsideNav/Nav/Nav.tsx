@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
-import { BiHomeAlt } from 'react-icons/bi';
+import { BiHomeAlt, BiBookmark } from 'react-icons/bi';
 import { HiArrowTrendingUp } from 'react-icons/hi2';
 import { RxPerson } from 'react-icons/rx';
 
@@ -19,8 +19,6 @@ interface Props {
 }
 
 export const Nav = ({ className }: Props) => {
-  const router = useRouter();
-
   const { t } = useTranslation('common');
 
   return (
@@ -42,6 +40,10 @@ export const Nav = ({ className }: Props) => {
       <div className={cls.links_box}>
         <NavLink href={Routes.Statistics} icon={<HiArrowTrendingUp />}>
           {t('nav.statistics')}
+        </NavLink>
+
+        <NavLink href={Routes.Favorites} icon={<BiBookmark />}>
+          {t('nav.favorites')}
         </NavLink>
       </div>
 

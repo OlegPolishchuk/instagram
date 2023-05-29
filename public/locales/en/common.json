@@ -5,7 +5,8 @@
     "home": "Home",
     "create": "Create",
     "profile": "My Profile",
-    "statistics": "Statistics"
+    "statistics": "Statistics",
+    "favorites": "Favorites"
   },
   "logout_button": {
     "modal": {

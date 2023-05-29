@@ -1,5 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 
+import clsx from 'clsx';
+
 import cls from './AsideNav.module.css';
 
 import { AsideNav, Header } from '@/components';
@@ -16,7 +18,7 @@ const AsideNavLayout = ({ children }: Props) => {
         <MobileNavigations />
       </Header>
 
-      <div className={cls.container}>
+      <div className={clsx(cls.container, 'container')}>
         <AsideNav />
         <main className={cls.main}>{children}</main>
       </div>
