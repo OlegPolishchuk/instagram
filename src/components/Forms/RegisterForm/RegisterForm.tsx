@@ -103,7 +103,7 @@ export const RegisterForm = ({ submitCallback, isLoading, disabled }: Props) => 
         </FormFooter>
       </Form>
 
-      <BaseModal isOpen={showModal} closeCallback={confirmModal} />
+      <BaseModal isOpen={showModal} confirmCallback={confirmModal} />
     </>
   );
 };
