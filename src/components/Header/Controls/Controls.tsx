@@ -20,7 +20,11 @@ export const Controls = ({ children }: Props) => {
 
   return (
     <div className={cls.header_controls}>
-      <Link className={cls.btn_change_locale} href={currentUrlParams} locale={handleChangeLocale}>
+      <Link
+        className={cls.btn_change_locale}
+        href={currentUrlParams}
+        locale={handleChangeLocale}
+      >
         {t('changeLocaleTo')}
       </Link>
 

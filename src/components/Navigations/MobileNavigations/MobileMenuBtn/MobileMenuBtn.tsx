@@ -2,7 +2,10 @@ import React, { ComponentPropsWithRef } from 'react';
 
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 
-export const MobileMenuBtn = ({ onClick, className }: ComponentPropsWithRef<'button'>) => {
+export const MobileMenuBtn = ({
+  onClick,
+  className,
+}: ComponentPropsWithRef<'button'>) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
@@ -10,7 +13,12 @@ export const MobileMenuBtn = ({ onClick, className }: ComponentPropsWithRef<'but
   };
 
   return (
-    <button type="button" onClick={handleClick} id="mobile-menu-btn" className={className}>
+    <button
+      type="button"
+      onClick={handleClick}
+      id="mobile-menu-btn"
+      className={className}
+    >
       <BiDotsHorizontalRounded />
     </button>
   );

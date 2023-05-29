@@ -28,7 +28,9 @@ export const Input = forwardRef<HTMLInputElement, Props>(
     };
 
     return (
-      <div className={clsx(cls.wrapper, disabled && cls.disabled, errorMessage && cls.error)}>
+      <div
+        className={clsx(cls.wrapper, disabled && cls.disabled, errorMessage && cls.error)}
+      >
         <label className={cls.label}>
           {label}:
           <input
