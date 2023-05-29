@@ -1,5 +1,5 @@
 import { api } from '@/store/api/api';
-import { Profile, ProfileUpdateData } from '@/store/api/profile/types';
+import { FakePhotos, Profile, ProfileUpdateData } from '@/store/api/profile/types';
 
 const URL = 'users/profile';
 
@@ -33,6 +33,12 @@ export const profileAPI = api.injectEndpoints({
         method: 'DELETE',
       }),
     }),
+
+    getFakePhotos: build.query<FakePhotos[], void>({
+      query: () => ({
+        url: 'https://jsonplaceholder.typicode.com/photos?_limit=9',
+      }),
+    }),
   }),
 });
 
@@ -41,6 +47,7 @@ export const {
   useUpdateProfileMutation,
   useUploadAvatarMutation,
   useDeleteAvatarMutation,
+  useGetFakePhotosQuery,
 } = profileAPI;
 
 export const { deleteAvatar, uploadAvatar, updateProfile, getProfile } =

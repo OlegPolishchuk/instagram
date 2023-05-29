@@ -16,6 +16,18 @@ const nextConfig = {
   },
   reactStrictMode: false,
   i18n,
+
+  images: {
+    // remotePatterns: [
+    //   {
+    //     protocol: 'https',
+    //     hostname: 'via.placeholder.com',
+    //     port: '',
+    //     pathname: '/600/**',
+    //   },
+    // ],
+    domains: ['via.placeholder.com'],
+  },
 };
 
 module.exports = nextConfig;

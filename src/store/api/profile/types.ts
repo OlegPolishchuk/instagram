@@ -24,3 +24,11 @@ export interface ProfileUpdateData {
   dateOfBirth: string;
   aboutMe: string;
 }
+
+export interface FakePhotos {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}

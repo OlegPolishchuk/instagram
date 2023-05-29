@@ -1,6 +1,8 @@
 .container {
   display: flex;
   gap: 38px;
+
+  margin-bottom: 48px;
 }
 
 .description {

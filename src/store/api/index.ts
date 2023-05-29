@@ -26,6 +26,7 @@ export {
   useUploadAvatarMutation,
   useUpdateProfileMutation,
   useGetProfileQuery,
+  useGetFakePhotosQuery,
 } from './profile/profileAPI';
 
 export type {
@@ -35,4 +36,4 @@ export type {
   AuthError,
 } from './auth/types';
 
-export type { ProfileUpdateData, Profile, Avatars } from './profile/types';
+export type { ProfileUpdateData, Profile, Avatars, FakePhotos } from './profile/types';

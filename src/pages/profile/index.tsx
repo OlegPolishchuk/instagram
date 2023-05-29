@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { getAsideNavLayout } from '@/components/Layouts';
-import { ProfileData } from '@/components/Profile';
+import { PostsList, ProfileData } from '@/components/Profile';
 import { useGetProfileQuery } from '@/store/api';
 
 const Profile = () => {
@@ -16,6 +16,8 @@ const Profile = () => {
   return (
     <>
       <ProfileData profile={data} />
+
+      <PostsList />
     </>
   );
 };
