@@ -1,0 +1,50 @@
+.avatar_wrapper {
+  position: relative;
+
+  margin-bottom: 24px;
+}
+
+.button_delete {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+  outline: none;
+  border: none;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-dark-900);
+}
+
+.button_delete::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: var(--color-light-100);
+}
+
+.button_delete:hover .button_delete_icon {
+  color: var(--color-danger-500);
+}
+
+
+.button_delete_icon {
+  font-size: 26px;
+  color: var(--color-danger-300);
+
+  position: relative;
+}
+

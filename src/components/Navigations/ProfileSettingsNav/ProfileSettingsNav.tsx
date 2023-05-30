@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 
 import cls from './ProfileSettingNav.module.css';
 
-import { NavLink } from '@/components/Navigations/AsideNav/NavLink/NavLink';
+import { NavLink } from '@/components';
 import { Routes } from '@/shared/constants';
 
 interface SettingsRoutes {

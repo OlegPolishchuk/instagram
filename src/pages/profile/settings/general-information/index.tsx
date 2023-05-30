@@ -3,10 +3,11 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import { GeneralInfo } from '@/components';
 import { getProfileSettingsLayout } from '@/components/Layouts';
 
 const GeneralInformation = () => {
-  return <div>General Information</div>;
+  return <GeneralInfo />;
 };
 
 GeneralInformation.getLayout = getProfileSettingsLayout;

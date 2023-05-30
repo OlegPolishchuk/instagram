@@ -1,6 +1,8 @@
 .nav {
   display: flex;
   justify-content: space-evenly;
+
+  margin-bottom: 25px;
 }
 
 .nav_item {
