@@ -10,10 +10,18 @@
   width: 204px;
   height: 204px;
 
+  max-width: 204px;
+
   border-radius: 50%;
   background-color: var(--color-dark-500);
 
   font-size: 40px;
+}
+
+.image {
+  border-radius: 50%;
+
+  max-width: 204px;
 }
 
 @media (max-width: 992px) {

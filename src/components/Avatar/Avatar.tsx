@@ -15,7 +15,11 @@ export const Avatar = ({ imgSrc, className }: Props) => {
   return (
     <div className={clsx(cls.container, className && className)}>
       <div className={cls.image_container}>
-        {imgSrc ? <Image src={imgSrc} alt="user avatar" fill /> : <HiOutlinePhotograph />}
+        {imgSrc ? (
+          <Image className={cls.image} src={imgSrc} alt="user avatar" fill />
+        ) : (
+          <HiOutlinePhotograph />
+        )}
       </div>
     </div>
   );

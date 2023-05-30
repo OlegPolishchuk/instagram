@@ -21,6 +21,8 @@
   height: 30px;
   border-radius: 50%;
   background-color: var(--color-dark-900);
+
+  transition: .2s ease;
 }
 
 .button_delete::before {
@@ -46,6 +48,8 @@
   color: var(--color-danger-300);
 
   position: relative;
+
+  transition: .2s ease;
 }
 
 @media (max-width: 992px) {

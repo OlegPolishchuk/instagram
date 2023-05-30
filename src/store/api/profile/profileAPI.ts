@@ -1,5 +1,10 @@
-import { api } from '@/store/api/api';
-import { FakePhotos, Profile, ProfileUpdateData } from '@/store/api/profile/types';
+import { api, TAGS } from '@/store/api/api';
+import {
+  Avatar,
+  FakePhotos,
+  Profile,
+  ProfileUpdateData,
+} from '@/store/api/profile/types';
 
 const URL = 'users/profile';
 
@@ -9,22 +14,25 @@ export const profileAPI = api.injectEndpoints({
       query: () => ({
         url: URL,
       }),
+      providesTags: () => [TAGS.profile],
     }),
 
     updateProfile: build.mutation({
       query: (data: ProfileUpdateData) => ({
         url: URL,
         method: 'PUT',
-        body: { data },
+        body: data,
       }),
+      invalidatesTags: [TAGS.profile],
     }),
 
-    uploadAvatar: build.mutation({
+    uploadAvatar: build.mutation<Avatar[], FormData>({
       query: (file: FormData) => ({
         url: `${URL}/avatar`,
         method: 'POST',
-        body: { file },
+        body: file,
       }),
+      invalidatesTags: [TAGS.profile],
     }),
 
     deleteAvatar: build.mutation({
@@ -32,6 +40,7 @@ export const profileAPI = api.injectEndpoints({
         url: `${URL}/avatar`,
         method: 'DELETE',
       }),
+      invalidatesTags: [TAGS.profile],
     }),
 
     getFakePhotos: build.query<FakePhotos[], void>({

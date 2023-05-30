@@ -5,6 +5,10 @@ import { BaseQueryWithAuth } from '@/store/api/interseptors/tokenRefreshIntersep
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+export const TAGS = {
+  profile: 'profile-data',
+};
+
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: BaseQueryWithAuth(
@@ -19,6 +23,7 @@ export const api = createApi({
     }
   },
   endpoints: () => ({}),
+  tagTypes: [TAGS.profile],
 });
 
 export const enhancedApi = api.enhanceEndpoints({

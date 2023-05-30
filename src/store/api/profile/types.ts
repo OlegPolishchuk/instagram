@@ -1,4 +1,4 @@
-export interface Avatars {
+export interface Avatar {
   url: string;
   width: number;
   height: number;
@@ -13,7 +13,7 @@ export interface Profile {
   city: string;
   dateOfBirth: string;
   aboutMe: string;
-  avatars: Avatars[];
+  avatars: Avatar[];
 }
 
 export interface ProfileUpdateData {

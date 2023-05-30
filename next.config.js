@@ -18,7 +18,7 @@ const nextConfig = {
   i18n,
 
   images: {
-    domains: ['via.placeholder.com'],
+    domains: ['via.placeholder.com', 'storage.yandexcloud.net'],
   },
 };
 
