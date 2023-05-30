@@ -42,7 +42,7 @@ export const AuthLayout = ({ children }: Props) => {
     if (!protectedRoute) {
       setLoading(false);
     }
-  }, [protectedRoute, isError, isSuccess]);
+  }, [protectedRoute, isError, isSuccess, skipRequest]);
 
   if (loading) {
     return <GlobalLoader />;
