@@ -1,5 +1,26 @@
 .container {
   display: flex;
-  gap: 36px;
+  flex-direction: column;
 }
 
+.data_container {
+  display: flex;
+  gap: 36px;
+
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+
+  border-bottom: 1px solid var(--color-dark-300);
+}
+
+.button_save {
+  align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+  .data_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

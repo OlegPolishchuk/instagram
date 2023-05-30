@@ -1,0 +1,21 @@
+.container {
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 100%;
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}

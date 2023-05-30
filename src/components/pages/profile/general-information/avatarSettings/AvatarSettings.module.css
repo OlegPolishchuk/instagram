@@ -48,3 +48,9 @@
   position: relative;
 }
 
+@media (max-width: 992px) {
+  .avatar > div {
+    width: 204px;
+    height: 204px;
+  }
+}

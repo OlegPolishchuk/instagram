@@ -8,15 +8,19 @@ interface Props extends ComponentPropsWithRef<'textarea'> {
   errorMessage?: string;
   callback?: (value: string) => void;
   fullWidth?: boolean;
+  label?: string;
 }
 
 export const Textarea: FC<Props> = ({
   callback,
+  label,
   fullWidth,
   errorMessage,
   className,
   disabled,
   onChange,
+  placeholder,
+  ...restProps
 }) => {
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     onChange && onChange(event);
@@ -26,13 +30,23 @@ export const Textarea: FC<Props> = ({
 
   return (
     <div className={clsx(cls.wrapper, fullWidth && cls.full)}>
-      <textarea
-        className={clsx(cls.textarea, className && className, errorMessage && cls.error)}
-        disabled={disabled}
-        onChange={handleChange}
-        placeholder="Some text"
-      />
-      <span className={cls.errorMessage}>{errorMessage}</span>
+      <label className={cls.label}>
+        {label && `${label}:`}
+
+        <textarea
+          className={clsx(
+            cls.textarea,
+            className && className,
+            errorMessage && cls.error,
+            fullWidth && cls.full,
+          )}
+          disabled={disabled}
+          onChange={handleChange}
+          placeholder={placeholder}
+          {...restProps}
+        />
+        <span className={cls.errorMessage}>{errorMessage}</span>
+      </label>
     </div>
   );
 };

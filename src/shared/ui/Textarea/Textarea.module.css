@@ -3,8 +3,8 @@
   position: relative;
 }
 
-.wrapper.full {
-  display: block;
+.full {
+  width: 100%;
 }
 
 .errorMessage {
@@ -16,8 +16,17 @@
   color: var(--color-danger-500);
 }
 
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 4px;
+  color: var(--color-light-900);
+}
+
 .textarea {
-  padding: 6px;
+  padding: 6px 12px;
   min-height: 90px;
   min-width: 300px;
 
@@ -26,7 +35,11 @@
   outline: none;
 
   background: var(--color-dark-500);
+
   color: var(--color-light-900);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
 
   resize: none;
   transition: .2s ease;
