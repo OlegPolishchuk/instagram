@@ -8,8 +8,7 @@ import { toast } from 'react-toastify';
 
 import cls from './style.module.css';
 
-import { getHeaderLayout } from '@/components';
-import { RecoveryForm } from '@/pages/auth/recovery/recoveryForm/RecoveryForm';
+import { getHeaderLayout, RecoveryForm } from '@/components';
 import { Routes } from '@/shared/constants';
 import { BaseModal } from '@/shared/ui';
 import { useNewPasswordMutation } from '@/store/api/auth/authApi';

@@ -5,9 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
-import { EmailConfirmationModal } from '../components/EmailConfirmationModal';
-
-import { Confirmation, getHeaderLayout } from '@/components';
+import { Confirmation, getHeaderLayout, EmailConfirmationModal } from '@/components';
 import { Routes } from '@/shared/constants';
 import { BaseModal, Input } from '@/shared/ui';
 import { AuthError, useResendEmailMutation } from '@/store/api';

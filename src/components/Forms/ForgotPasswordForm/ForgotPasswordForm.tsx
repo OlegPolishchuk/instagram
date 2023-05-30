@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import cls from './style.module.css';
 
-import { Recaptcha } from '@/pages/auth/login/forgot-password/Recaptcha/Recaptcha';
+import { Recaptcha } from '@/components';
 import { Routes } from '@/shared/constants';
 import { Button, Form, FormFooter, Input } from '@/shared/ui';
 import { checkEmailInput } from '@/shared/utils';
