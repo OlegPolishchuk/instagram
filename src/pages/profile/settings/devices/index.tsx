@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { getProfileSettingsLayout } from '@/components/Layouts';
 
-const Devices = () => {
+const Devices: InferGetServerSidePropsType<typeof getServerSideProps> = () => {
   return <div>Devices</div>;
 };
 

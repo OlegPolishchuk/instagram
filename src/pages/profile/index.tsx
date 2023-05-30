@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { GetServerSideProps, InferGetStaticPropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { getAsideNavLayout } from '@/components/Layouts';
 import { PostsList, ProfileData } from '@/components/Profile';
 import { useGetProfileQuery } from '@/store/api';
 
-const Profile: InferGetStaticPropsType<typeof getServerSideProps> = () => {
+const Profile: InferGetServerSidePropsType<typeof getServerSideProps> = () => {
   const { isLoading, data } = useGetProfileQuery();
 
   console.log({ data });
