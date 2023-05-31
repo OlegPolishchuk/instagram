@@ -36,4 +36,4 @@ export type {
   AuthError,
 } from './auth/types';
 
-export type { ProfileUpdateData, Profile, Avatars, FakePhotos } from './profile/types';
+export type { ProfileUpdateData, Profile, Avatar, FakePhotos } from './profile/types';
