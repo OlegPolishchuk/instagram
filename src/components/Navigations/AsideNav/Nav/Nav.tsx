@@ -1,10 +1,8 @@
 import React from 'react';
 
 import clsx from 'clsx';
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
-import { BiHomeAlt, BiBookmark } from 'react-icons/bi';
+import { BiBookmark, BiHomeAlt } from 'react-icons/bi';
 import { HiArrowTrendingUp } from 'react-icons/hi2';
 import { RxPerson } from 'react-icons/rx';
 
@@ -13,37 +11,38 @@ import { NavLink } from '../NavLink/NavLink';
 
 import { LogoutButton } from '@/components/Navigations/LogoutButton/LogoutButton';
 import { Routes } from '@/shared/constants';
+import { useFormatTranslations } from '@/shared/hooks';
 
 interface Props {
   className?: string;
 }
 
 export const Nav = ({ className }: Props) => {
-  const { t } = useTranslation('common');
+  const format = useFormatTranslations('common', 'nav');
 
   return (
     <nav className={clsx(cls.nav, className && className)}>
       <div className={cls.links_box}>
         <NavLink href={Routes.Home} icon={<BiHomeAlt />}>
-          {t('nav.home')}
+          {format('home')}
         </NavLink>
 
         <NavLink href={Routes.Create} icon={<AiOutlinePlusSquare />}>
-          {t('nav.create')}
+          {format('create')}
         </NavLink>
 
         <NavLink href={Routes.Profile.base} icon={<RxPerson />}>
-          {t('nav.profile')}
+          {format('profile')}
         </NavLink>
       </div>
 
       <div className={cls.links_box}>
         <NavLink href={Routes.Statistics} icon={<HiArrowTrendingUp />}>
-          {t('nav.statistics')}
+          {format('statistics')}
         </NavLink>
 
         <NavLink href={Routes.Favorites} icon={<BiBookmark />}>
-          {t('nav.favorites')}
+          {format('favorites')}
         </NavLink>
       </div>
 

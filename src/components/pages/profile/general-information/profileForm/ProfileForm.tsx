@@ -5,6 +5,7 @@ import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import cls from './ProfileForm.module.css';
 import { ProfileFormData } from './profileFormSchema';
 
+import { useFormatTranslations } from '@/shared/hooks';
 import { Input, Textarea } from '@/shared/ui';
 import { Profile } from '@/store/api';
 
@@ -27,11 +28,13 @@ export const ProfileForm = ({ data, errors, register, disabled }: Props) => {
   const date = new Date(dateOfBirth);
   const formattedDate = date.toISOString().split('T')[0];
 
+  const formatMessage = useFormatTranslations('profileSettingsPage', 'generalInfo.form');
+
   return (
     <div className={cls.container}>
       <form className={cls.form}>
         <Input
-          label="Username"
+          label={formatMessage('username')}
           defaultValue={userName}
           {...register('userName')}
           errorMessage={errors?.userName?.message}
@@ -39,28 +42,28 @@ export const ProfileForm = ({ data, errors, register, disabled }: Props) => {
         />
 
         <Input
-          label="First name"
+          label={formatMessage('firstName')}
           defaultValue={firstName}
           {...register('firstName')}
           disabled={disabled}
         />
 
         <Input
-          label="Last name"
+          label={formatMessage('lastName')}
           defaultValue={lastName}
           {...register('lastName')}
           disabled={disabled}
         />
 
         <Input
-          label="City"
+          label={formatMessage('city')}
           defaultValue={city}
           {...register('city')}
           disabled={disabled}
         />
 
         <Input
-          label="Date of birthday"
+          label={formatMessage('dateOfBirth')}
           type="date"
           defaultValue={formattedDate}
           {...register('dateOfBirth')}
@@ -69,7 +72,7 @@ export const ProfileForm = ({ data, errors, register, disabled }: Props) => {
         />
 
         <Textarea
-          label="About me"
+          label={formatMessage('aboutMe')}
           fullWidth
           placeholder="About me"
           defaultValue={aboutMe}

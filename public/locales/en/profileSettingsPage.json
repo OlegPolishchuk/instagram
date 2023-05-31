@@ -1,0 +1,21 @@
+{
+  "generalInfo": {
+    "error": {
+      "message": "Oops! Something went wrong. Couldn't load this page"
+    },
+    "avatar": {
+      "errors": {
+        "max-size": "Exceeded the maximum file size",
+        "upload": "Сouldn't change avatar. Please try again"
+      }
+    },
+    "form": {
+      "username": "Username",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "city": "City",
+      "dateOfBirth": "Date of Birthday",
+      "aboutMe": "About me"
+    }
+  }
+}

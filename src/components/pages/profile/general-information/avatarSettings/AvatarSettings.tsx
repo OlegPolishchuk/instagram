@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import { useTranslation } from 'next-i18next';
 import { IoMdCloseCircle } from 'react-icons/io';
+import { toast } from 'react-toastify';
 
 import cls from './AvatarSettings.module.css';
 
@@ -12,7 +14,9 @@ interface Props {
   src: string;
 }
 export const AvatarSettings = ({ src }: Props) => {
-  const [handleUpload, { isSuccess: isUploadSuccess, isLoading: isUploadLoading }] =
+  const { t } = useTranslation('profileSettingsPage');
+
+  const [handleUpload, { isError: uploadError, isLoading: isUploadLoading }] =
     useUploadAvatarMutation();
   const [handleDelete, { isLoading: isDeleteLoading }] = useDeleteAvatarMutation();
 
@@ -34,10 +38,14 @@ export const AvatarSettings = ({ src }: Props) => {
   };
 
   useEffect(() => {
-    if (isUploadSuccess) {
+    if (uploadedAvatarSrc) {
       setCurrentAvatarSrc(uploadedAvatarSrc);
     }
-  }, [isUploadSuccess]);
+  }, [uploadedAvatarSrc]);
+
+  if (uploadError) {
+    toast.error(t('generalInfo.avatar.errors.upload'));
+  }
 
   return (
     <aside>

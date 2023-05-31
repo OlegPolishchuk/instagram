@@ -1,5 +1,8 @@
 import React, { ChangeEvent, useRef } from 'react';
 
+import { useTranslation } from 'next-i18next';
+import { toast } from 'react-toastify';
+
 import cls from './ButtonUploadAvatar.module.css';
 
 import { Button } from '@/shared/ui';
@@ -9,7 +12,11 @@ interface Props {
   isLoading: boolean;
   disabled?: boolean;
 }
+
+const MAX_AVATAR_SIZE = 4_000_000;
+
 export const ButtonAvatarUpload = ({ onUpload, isLoading, disabled }: Props) => {
+  const { t } = useTranslation('profileSettingsPage');
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleInput = () => {
@@ -19,6 +26,10 @@ export const ButtonAvatarUpload = ({ onUpload, isLoading, disabled }: Props) => 
   const handleChooseAvatar = async (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
+
+      if (file.size > MAX_AVATAR_SIZE) {
+        return toast.error(t('generalInfo.avatar.errors.max-size'));
+      }
 
       const formData = new FormData();
       const reader = new FileReader();

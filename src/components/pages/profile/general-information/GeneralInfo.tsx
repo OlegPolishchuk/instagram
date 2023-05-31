@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -20,6 +21,8 @@ export const GeneralInfo = () => {
   const { data } = useGetProfileQuery();
   const [handleUpdateProfile, { isError, isLoading }] = useUpdateProfileMutation();
 
+  const { t } = useTranslation('profileSettingsPage');
+
   const {
     register,
     handleSubmit,
@@ -31,7 +34,7 @@ export const GeneralInfo = () => {
   }
 
   if (isError) {
-    toast.error('Error message');
+    toast.error(t('generalInfo.error.message'));
   }
 
   const { avatars } = data;
