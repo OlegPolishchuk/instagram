@@ -7,8 +7,9 @@ import { Button } from '@/shared/ui';
 interface Props {
   onUpload: (file: FormData, src: string) => void;
   isLoading: boolean;
+  disabled?: boolean;
 }
-export const ButtonAvatarUpload = ({ onUpload, isLoading }: Props) => {
+export const ButtonAvatarUpload = ({ onUpload, isLoading, disabled }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleInput = () => {
@@ -48,7 +49,7 @@ export const ButtonAvatarUpload = ({ onUpload, isLoading }: Props) => {
         onClick={handleInput}
         fullwidth
         isLoading={isLoading}
-        disabled={isLoading}
+        disabled={isLoading || disabled}
       >
         Add profile photo
       </Button>

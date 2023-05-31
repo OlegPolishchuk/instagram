@@ -35,7 +35,7 @@ export const profileAPI = api.injectEndpoints({
       invalidatesTags: [TAGS.profile],
     }),
 
-    deleteAvatar: build.mutation({
+    deleteAvatar: build.mutation<void, void>({
       query: () => ({
         url: `${URL}/avatar`,
         method: 'DELETE',

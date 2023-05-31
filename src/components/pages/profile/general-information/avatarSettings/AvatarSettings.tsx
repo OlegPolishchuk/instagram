@@ -14,7 +14,7 @@ interface Props {
 export const AvatarSettings = ({ src }: Props) => {
   const [handleUpload, { isSuccess: isUploadSuccess, isLoading: isUploadLoading }] =
     useUploadAvatarMutation();
-  const [handleDelete] = useDeleteAvatarMutation();
+  const [handleDelete, { isLoading: isDeleteLoading }] = useDeleteAvatarMutation();
 
   const [uploadedAvatarSrc, setUploadedAvatarSrc] = useState('');
   const [currentAvatarSrc, setCurrentAvatarSrc] = useState(src);
@@ -22,6 +22,15 @@ export const AvatarSettings = ({ src }: Props) => {
   const handleUploadAvatar = async (file: FormData, src: string) => {
     setUploadedAvatarSrc(src);
     await handleUpload(file);
+  };
+
+  const handleDeleteAvatar = () => {
+    if (!currentAvatarSrc) {
+      return;
+    }
+
+    setCurrentAvatarSrc('');
+    handleDelete();
   };
 
   useEffect(() => {
@@ -35,7 +44,12 @@ export const AvatarSettings = ({ src }: Props) => {
       <div className={cls.avatar_wrapper}>
         <Avatar className={cls.avatar} imgSrc={currentAvatarSrc} />
 
-        <button type="button" className={cls.button_delete}>
+        <button
+          type="button"
+          className={cls.button_delete}
+          onClick={handleDeleteAvatar}
+          disabled={isDeleteLoading}
+        >
           <IoMdCloseCircle className={cls.button_delete_icon} />
         </button>
       </div>
