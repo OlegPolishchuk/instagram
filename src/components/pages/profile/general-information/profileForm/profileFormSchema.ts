@@ -8,7 +8,6 @@ export const ProfileFormSchema = yap
     firstName: yap.string(),
     lastName: yap.string(),
     city: yap.string(),
-    dateOfBirth: yap.string().required(),
     aboutMe: yap.string().required().min(FormValidation.aboutMe),
   })
   .required();

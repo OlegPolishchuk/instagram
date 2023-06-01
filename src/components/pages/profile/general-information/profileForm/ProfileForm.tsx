@@ -5,8 +5,10 @@ import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import cls from './ProfileForm.module.css';
 import { ProfileFormData } from './profileFormSchema';
 
+import { DatePicker } from '@/components/DatePicker/DatePicker';
 import { useFormatTranslations } from '@/shared/hooks';
 import { Input, Textarea } from '@/shared/ui';
+import { formatDate } from '@/shared/utils/formatDate';
 import { Profile } from '@/store/api';
 
 interface Props {
@@ -21,12 +23,18 @@ interface Props {
     userName: string;
     dateOfBirth: string;
   }>;
+  dateOfBirth: string;
+  setDateOfBirth: React.Dispatch<React.SetStateAction<string>>;
 }
-export const ProfileForm = ({ data, errors, register, disabled }: Props) => {
-  const { aboutMe, userName, firstName, lastName, city, dateOfBirth } = data;
-
-  const date = new Date(dateOfBirth);
-  const formattedDate = date.toISOString().split('T')[0];
+export const ProfileForm = ({
+  data,
+  errors,
+  register,
+  disabled,
+  setDateOfBirth,
+  dateOfBirth,
+}: Props) => {
+  const { aboutMe, userName, firstName, lastName, city } = data;
 
   const formatMessage = useFormatTranslations('profileSettingsPage', 'generalInfo.form');
 
@@ -62,12 +70,9 @@ export const ProfileForm = ({ data, errors, register, disabled }: Props) => {
           disabled={disabled}
         />
 
-        <Input
-          label={formatMessage('dateOfBirth')}
-          type="date"
-          defaultValue={formattedDate}
-          {...register('dateOfBirth')}
-          errorMessage={errors?.dateOfBirth?.message}
+        <DatePicker
+          setDateOfBirth={setDateOfBirth}
+          dateOfBirth={dateOfBirth}
           disabled={disabled}
         />
 

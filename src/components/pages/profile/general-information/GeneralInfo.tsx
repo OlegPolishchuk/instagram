@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
@@ -11,6 +11,7 @@ import { ProfileForm } from './profileForm/ProfileForm';
 import { ProfileFormData, ProfileFormSchema } from './profileForm/profileFormSchema';
 
 import { Button } from '@/shared/ui';
+import { formatDate } from '@/shared/utils/formatDate';
 import {
   ProfileUpdateData,
   useGetProfileQuery,
@@ -18,8 +19,10 @@ import {
 } from '@/store/api';
 
 export const GeneralInfo = () => {
-  const { data } = useGetProfileQuery();
+  const { data, isSuccess } = useGetProfileQuery();
   const [handleUpdateProfile, { isError, isLoading }] = useUpdateProfileMutation();
+
+  const [dateOfBirth, setDateOfBirth] = useState('');
 
   const { t } = useTranslation('profileSettingsPage');
 
@@ -28,6 +31,12 @@ export const GeneralInfo = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ProfileFormData>({ resolver: yupResolver(ProfileFormSchema) });
+
+  useEffect(() => {
+    if (isSuccess) {
+      setDateOfBirth(formatDate(data.dateOfBirth));
+    }
+  }, [isSuccess]);
 
   if (!data) {
     return null;
@@ -41,7 +50,12 @@ export const GeneralInfo = () => {
   const profileAvatar = avatars.length ? avatars[0].url : '';
 
   const handleSave = (data: ProfileFormData) => {
-    handleUpdateProfile(data as ProfileUpdateData);
+    const newData = {
+      ...data,
+      dateOfBirth,
+    } as ProfileUpdateData;
+
+    handleUpdateProfile(newData);
   };
 
   return (
@@ -50,10 +64,13 @@ export const GeneralInfo = () => {
         <AvatarSettings src={profileAvatar} />
 
         <ProfileForm
+          key={data.dateOfBirth}
           data={data}
           register={register}
           errors={errors}
           disabled={isLoading}
+          dateOfBirth={dateOfBirth || ''}
+          setDateOfBirth={setDateOfBirth}
         />
       </div>
 
