@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -10,6 +9,7 @@ import cls from './GeneralInfo.module.css';
 import { ProfileForm } from './profileForm/ProfileForm';
 import { ProfileFormData, ProfileFormSchema } from './profileForm/profileFormSchema';
 
+import { useFormatTranslations } from '@/shared/hooks';
 import { Button } from '@/shared/ui';
 import { formatDate } from '@/shared/utils/formatDate';
 import {
@@ -24,7 +24,7 @@ export const GeneralInfo = () => {
 
   const [dateOfBirth, setDateOfBirth] = useState('');
 
-  const { t } = useTranslation('profileSettingsPage');
+  const formatMessage = useFormatTranslations('profileSettingsPage', 'generalInfo');
 
   const {
     register,
@@ -43,7 +43,7 @@ export const GeneralInfo = () => {
   }
 
   if (isError) {
-    toast.error(t('generalInfo.error.message'));
+    toast.error(formatMessage('error.message'));
   }
 
   const { avatars } = data;
@@ -79,7 +79,7 @@ export const GeneralInfo = () => {
         onClick={handleSubmit(handleSave)}
         disabled={isLoading}
       >
-        Save Changes
+        {formatMessage('button_save')}
       </Button>
     </div>
   );

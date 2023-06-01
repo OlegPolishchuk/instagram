@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useRef } from 'react';
 
-import { useTranslation } from 'next-i18next';
 import { toast } from 'react-toastify';
 
 import cls from './ButtonUploadAvatar.module.css';
 
+import { useFormatTranslations } from '@/shared/hooks';
 import { Button } from '@/shared/ui';
 
 interface Props {
@@ -16,7 +16,10 @@ interface Props {
 const MAX_AVATAR_SIZE = 4_000_000;
 
 export const ButtonAvatarUpload = ({ onUpload, isLoading, disabled }: Props) => {
-  const { t } = useTranslation('profileSettingsPage');
+  const formatMessage = useFormatTranslations(
+    'profileSettingsPage',
+    'generalInfo.avatar',
+  );
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleInput = () => {
@@ -28,7 +31,7 @@ export const ButtonAvatarUpload = ({ onUpload, isLoading, disabled }: Props) => 
       const file = event.target.files[0];
 
       if (file.size > MAX_AVATAR_SIZE) {
-        return toast.error(t('generalInfo.avatar.errors.max-size'));
+        return toast.error(formatMessage('errors.max-size'));
       }
 
       const formData = new FormData();
@@ -62,7 +65,7 @@ export const ButtonAvatarUpload = ({ onUpload, isLoading, disabled }: Props) => 
         isLoading={isLoading}
         disabled={isLoading || disabled}
       >
-        Add profile photo
+        {formatMessage('button_add')}
       </Button>
     </label>
   );
