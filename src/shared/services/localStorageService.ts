@@ -30,4 +30,10 @@ export const localStorageService = {
   removeItem(itemTitle: string) {
     localStorage.removeItem(itemTitle);
   },
+
+  getLocale() {
+    const locale = localStorage.getItem('i18nextLng');
+
+    return locale || 'en';
+  },
 };

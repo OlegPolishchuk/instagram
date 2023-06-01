@@ -1,8 +1,11 @@
 import clsx from 'clsx';
+import { ru, enUS } from 'date-fns/locale';
 import { ClassNames, DayPicker as DayPickerLibrary } from 'react-day-picker';
 import styles from 'react-day-picker/dist/style.module.css';
 
 import cls from './DayPicker.module.css';
+
+import { localStorageService } from '@/shared/services';
 
 const classNames: ClassNames = {
   ...styles,
@@ -28,6 +31,9 @@ interface Props {
 }
 
 export const DayPicker = ({ isOpen, selectedDate, onSelectDate, disabled }: Props) => {
+  const locale = localStorageService.getLocale();
+  const currentLocale = locale === 'ru' ? ru : enUS;
+
   return (
     <DayPickerLibrary
       initialFocus={isOpen}
@@ -40,6 +46,7 @@ export const DayPicker = ({ isOpen, selectedDate, onSelectDate, disabled }: Prop
       fromYear={1950}
       toYear={2023}
       disabled={disabled}
+      locale={currentLocale}
     />
   );
 };
