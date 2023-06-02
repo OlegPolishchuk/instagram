@@ -23,5 +23,5 @@
 .error {
   opacity: 1;
 
-  background-color: var(--color-danger-500);
+  background: conic-gradient(var(--color-danger-500), var(--color-danger-500));
 }

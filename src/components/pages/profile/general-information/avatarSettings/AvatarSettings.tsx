@@ -22,7 +22,11 @@ export const AvatarSettings = ({ src }: Props) => {
   return (
     <aside>
       <div className={cls.avatar_wrapper}>
-        <AvatarProgressBar className={cls.progress_bar} isAnimate={isLoading} />
+        <AvatarProgressBar
+          className={cls.progress_bar}
+          isAnimate={isLoading}
+          isError={isError}
+        />
         <Avatar className={cls.avatar} imgSrc={avatarSrc} />
         <ButtonDeleteAvatar state={avatarState} setState={setAvatarState} />
       </div>

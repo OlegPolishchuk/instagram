@@ -17,6 +17,7 @@ export const AvatarControls = ({ setState }: Props) => {
   const [newAvatar, setNewAvatar] = useState<UploadedAvatar>({ file: null, src: '' });
 
   const handleUploadLocalAvatar = (file: FormData, src: string) => {
+    setState(prevState => ({ ...prevState, isError: false }));
     setNewAvatar({ file, src });
     setIsModalOpen(true);
   };
@@ -28,6 +29,10 @@ export const AvatarControls = ({ setState }: Props) => {
     await handleUpload(newAvatar.file as FormData);
     setState(prevState => ({ ...prevState, isLoading: false }));
   };
+
+  if (isError) {
+    setState(prevState => ({ ...prevState, isError: true }));
+  }
 
   return (
     <>

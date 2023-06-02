@@ -6,7 +6,8 @@
     "avatar": {
       "errors": {
         "max-size": "Exceeded the maximum file size",
-        "upload": "Сouldn't change avatar. Please try again"
+        "upload": "Сouldn't change avatar. Please try again",
+        "delete": "Сouldn't delete the avatar. Please try again"
       },
       "button_add": "Add profile photo"
     },
