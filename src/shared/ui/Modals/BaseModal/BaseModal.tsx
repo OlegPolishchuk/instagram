@@ -13,6 +13,7 @@ interface Props {
   confirmCallback: () => void;
   status?: 'error' | 'success';
   isLoading?: boolean;
+  disabled?: boolean;
   buttons?: ReactNode;
   confirmBtnTitle?: string;
 }
@@ -26,6 +27,7 @@ export const BaseModal = memo(
     confirmCallback,
     confirmBtnTitle,
     buttons,
+    disabled,
     status,
   }: Props) => {
     const { mounted } = useMount({ opened: isOpen });
@@ -43,6 +45,7 @@ export const BaseModal = memo(
           title={title}
           status={status}
           isLoading={isLoading}
+          disabled={disabled}
           buttons={buttons}
           confirmBtnTitle={confirmBtnTitle}
         >

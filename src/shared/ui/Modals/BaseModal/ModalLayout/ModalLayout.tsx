@@ -35,6 +35,7 @@ interface Props {
   title?: string;
   status?: 'error' | 'success';
   isLoading?: boolean;
+  disabled?: boolean;
   buttons?: ReactNode;
 }
 
@@ -45,6 +46,7 @@ export const ModalLayout = ({
   onConfirm,
   children,
   isLoading,
+  disabled,
   opened,
   title,
   confirmBtnTitle,
@@ -125,7 +127,7 @@ export const ModalLayout = ({
           <div className={cls.modal_content}>{children}</div>
 
           <footer className={cls.modal_footer}>
-            <Button onClick={onConfirm} isLoading={isLoading} disabled={isLoading}>
+            <Button onClick={onConfirm} isLoading={isLoading} disabled={disabled}>
               {confirmBtnTitle || 'OK'}
             </Button>
 

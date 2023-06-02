@@ -1,0 +1,25 @@
+.wrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+
+  position: relative;
+}
+
+.wrapper:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  /*clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 50% 50%);*/
+
+  z-index: 1;
+}
+
+.image {
+  object-fit: cover;
+  z-index: 1;
+}

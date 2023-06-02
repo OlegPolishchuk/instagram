@@ -23,6 +23,7 @@
   border-radius: 50%;
 
   max-width: 204px;
+  object-fit: cover;
 }
 
 @media (max-width: 992px) {

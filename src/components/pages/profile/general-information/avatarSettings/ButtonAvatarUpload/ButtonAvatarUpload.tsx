@@ -9,7 +9,7 @@ import { Button } from '@/shared/ui';
 
 interface Props {
   onUpload: (file: FormData, src: string) => void;
-  isLoading: boolean;
+  isLoading?: boolean;
   disabled?: boolean;
 }
 
@@ -44,6 +44,7 @@ export const ButtonAvatarUpload = ({ onUpload, isLoading, disabled }: Props) => 
         const src = reader.result as string;
 
         onUpload(formData, src);
+        event.target.value = '';
       };
     }
   };

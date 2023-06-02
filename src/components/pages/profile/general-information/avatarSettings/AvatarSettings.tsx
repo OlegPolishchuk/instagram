@@ -1,68 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import { useTranslation } from 'next-i18next';
-import { IoMdCloseCircle } from 'react-icons/io';
-import { toast } from 'react-toastify';
-
+import { AvatarControls } from './AvatarControls/AvatarControls';
+import { AvatarProgressBar } from './AvatarProgressBar/AvatarProgressBar';
 import cls from './AvatarSettings.module.css';
+import { ButtonDeleteAvatar } from './ButtonDeleteAvatar/ButtonDeleteAvatar';
 
 import { Avatar } from '@/components';
-import { ButtonAvatarUpload } from '@/components/pages/profile/general-information/avatarSettings/ButtonAvatarUpload/ButtonAvatarUpload';
-import { useDeleteAvatarMutation, useUploadAvatarMutation } from '@/store/api';
 
 interface Props {
   src: string;
 }
 export const AvatarSettings = ({ src }: Props) => {
-  const { t } = useTranslation('profileSettingsPage');
+  const [avatarState, setAvatarState] = useState({
+    avatarSrc: src,
+    isLoading: false,
+    isError: false,
+  });
 
-  const [handleUpload, { isError: uploadError, isLoading: isUploadLoading }] =
-    useUploadAvatarMutation();
-  const [handleDelete, { isLoading: isDeleteLoading }] = useDeleteAvatarMutation();
-
-  const [uploadedAvatarSrc, setUploadedAvatarSrc] = useState('');
-  const [currentAvatarSrc, setCurrentAvatarSrc] = useState(src);
-
-  const handleUploadAvatar = async (file: FormData, src: string) => {
-    setUploadedAvatarSrc(src);
-    await handleUpload(file);
-  };
-
-  const handleDeleteAvatar = () => {
-    if (!currentAvatarSrc) {
-      return;
-    }
-
-    setCurrentAvatarSrc('');
-    handleDelete();
-  };
-
-  useEffect(() => {
-    if (uploadedAvatarSrc) {
-      setCurrentAvatarSrc(uploadedAvatarSrc);
-    }
-  }, [uploadedAvatarSrc]);
-
-  if (uploadError) {
-    toast.error(t('generalInfo.avatar.errors.upload'));
-  }
+  const { avatarSrc, isLoading, isError } = avatarState;
 
   return (
     <aside>
       <div className={cls.avatar_wrapper}>
-        <Avatar className={cls.avatar} imgSrc={currentAvatarSrc} />
-
-        <button
-          type="button"
-          className={cls.button_delete}
-          onClick={handleDeleteAvatar}
-          disabled={isDeleteLoading}
-        >
-          <IoMdCloseCircle className={cls.button_delete_icon} />
-        </button>
+        <AvatarProgressBar className={cls.progress_bar} isAnimate={isLoading} />
+        <Avatar className={cls.avatar} imgSrc={avatarSrc} />
+        <ButtonDeleteAvatar state={avatarState} setState={setAvatarState} />
       </div>
 
-      <ButtonAvatarUpload onUpload={handleUploadAvatar} isLoading={isUploadLoading} />
+      <AvatarControls setState={setAvatarState} />
     </aside>
   );
 };

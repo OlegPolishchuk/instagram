@@ -1,0 +1,27 @@
+.circle_wrap {
+  background: conic-gradient(transparent, var(--color-primary-500));
+  height: 210px;
+  width: 210px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+}
+
+.animate {
+  opacity: 1;
+  animation: load 1s linear infinite;
+}
+
+@keyframes load {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  opacity: 1;
+
+  background-color: var(--color-danger-500);
+}
