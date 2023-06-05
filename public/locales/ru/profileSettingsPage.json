@@ -27,6 +27,12 @@
       "this_device": "Текущее устройство",
       "other_devices": "Активные сессии"
     }
+  },
+  "account_management": {
+    "title": "Управление аккаунтом",
+    "checkboxes": {
+      "personal": "Персональынй",
+      "business": "Бизнес"
+    }
   }
-
 }

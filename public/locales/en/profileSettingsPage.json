@@ -27,5 +27,12 @@
       "this_device": "This Device",
       "other_devices": "Active Sessions"
     }
+  },
+  "account_management": {
+    "title": "Account Management",
+    "checkboxes": {
+      "personal": "Personal",
+      "business": "Business"
+    }
   }
 }
