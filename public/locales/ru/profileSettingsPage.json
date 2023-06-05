@@ -20,5 +20,13 @@
       "aboutMe": "Обо мне"
     },
     "button_save": "Сохранить"
+  },
+  "devices": {
+    "button_terminate": "Выйти из всех других устройств",
+    "titles": {
+      "this_device": "Текущее устройство",
+      "other_devices": "Активные сессии"
+    }
   }
+
 }

@@ -20,5 +20,12 @@
       "aboutMe": "About me"
     },
     "button_save": "Save Changes"
+  },
+  "devices": {
+    "button_terminate": "Terminate all other sessions",
+    "titles": {
+      "this_device": "This Device",
+      "other_devices": "Active Sessions"
+    }
   }
 }

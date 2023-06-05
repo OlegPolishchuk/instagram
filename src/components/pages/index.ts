@@ -1,2 +1,2 @@
 export { Recaptcha, EmailConfirmationModal, RecoveryForm } from './auth';
-export { GeneralInfo } from './profile';
+export { GeneralInfo, ActiveDevices, CurrentDevice } from './profile';

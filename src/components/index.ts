@@ -12,4 +12,11 @@ export {
 } from './Navigations';
 export { LogoutModal } from './LogoutModal/LogoutModal';
 export { Avatar } from './Avatar/Avatar';
-export { EmailConfirmationModal, Recaptcha, RecoveryForm, GeneralInfo } from './pages';
+export {
+  EmailConfirmationModal,
+  Recaptcha,
+  RecoveryForm,
+  GeneralInfo,
+  ActiveDevices,
+  CurrentDevice,
+} from './pages';
