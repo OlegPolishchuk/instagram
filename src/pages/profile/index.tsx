@@ -10,7 +10,6 @@ import { useGetProfileQuery } from '@/store/api';
 const Profile: InferGetServerSidePropsType<typeof getServerSideProps> = () => {
   const { isLoading, data } = useGetProfileQuery();
 
-  console.log({ data });
   if (!data) return null;
 
   return (

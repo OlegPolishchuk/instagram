@@ -23,12 +23,7 @@ export const LogoutModal = ({ open, setOpen }: Props) => {
   };
 
   const RejectButton = (
-    <Button
-      variant="default"
-      onClick={handleRejectLogout}
-      isLoading={isLoading}
-      disabled={isLoading}
-    >
+    <Button variant="default" onClick={handleRejectLogout} disabled={isLoading}>
       No
     </Button>
   );

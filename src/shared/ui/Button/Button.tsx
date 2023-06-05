@@ -45,7 +45,7 @@ export const Button: FC<Props> = ({
 
       {rightIcon && <p className={cls.icon}>{rightIcon}</p>}
 
-      {isLoading && <Spinner className={cls.loading} />}
+      {isLoading && <Spinner className={cls.icon} />}
     </button>
   );
 };

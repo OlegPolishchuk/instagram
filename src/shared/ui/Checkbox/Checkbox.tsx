@@ -26,19 +26,21 @@ export const Checkbox = ({
   };
 
   return (
-    <label className={cls.wrapper}>
-      <div className={cls.checkbox_container}>
-        <input
-          className={clsx(cls.checkbox, className && className)}
-          type="checkbox"
-          checked={checked}
-          onChange={handleChange}
-          disabled={disabled}
-          {...restProps}
-        />
-      </div>
+    <div className={clsx(cls.wrapper, className)}>
+      <label className={cls.label_wrapper}>
+        <div className={cls.checkbox_container}>
+          <input
+            className={cls.checkbox}
+            type="checkbox"
+            checked={checked}
+            onChange={handleChange}
+            disabled={disabled}
+            {...restProps}
+          />
+        </div>
 
-      <span className={cls.label}>{label}</span>
-    </label>
+        <span className={cls.label}>{label}</span>
+      </label>
+    </div>
   );
 };
