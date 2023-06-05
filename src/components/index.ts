@@ -19,4 +19,5 @@ export {
   GeneralInfo,
   ActiveDevices,
   CurrentDevice,
+  Payments,
 } from './pages';

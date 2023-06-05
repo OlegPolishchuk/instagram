@@ -34,5 +34,17 @@
       "personal": "Персональынй",
       "business": "Бизнес"
     }
+  },
+  "payments": {
+    "table": {
+      "date": "Дата платежа",
+      "price": "Цена",
+      "subscriptionType": "Тип подписки",
+      "paymentsType": "Платежная система"
+    },
+    "select": {
+      "show": "Показать",
+      "page": "на странице"
+    }
   }
 }

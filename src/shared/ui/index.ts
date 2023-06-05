@@ -9,3 +9,4 @@ export { Checkbox } from './Checkbox/Checkbox';
 export { Spinner } from './Spinner/Spinner';
 export { Loader } from './Loader/Loader';
 export { CustomSelect } from './CustomSelect/CustomSelect';
+export { Pagination } from './Pagination/Pagination';

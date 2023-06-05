@@ -49,7 +49,7 @@ export const CustomSelect = ({ options, onChange, value }: Props) => {
           ...theme.colors,
           primary: '#333',
           neutral0: '#333',
-          primary25: '#747d86',
+          primary25: '#4C4C4C',
         },
       })}
     />

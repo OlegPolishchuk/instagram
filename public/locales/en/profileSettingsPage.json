@@ -34,5 +34,17 @@
       "personal": "Personal",
       "business": "Business"
     }
+  },
+  "payments": {
+    "table": {
+      "date": "Date of Payments",
+      "price": "Price",
+      "subscriptionType": "Subscription Type",
+      "paymentsType": "Payments Type"
+    },
+    "select": {
+      "show": "Show",
+      "page": "on the page"
+    }
   }
 }

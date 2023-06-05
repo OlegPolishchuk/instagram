@@ -20,7 +20,7 @@ const AccountManagement: InferGetServerSidePropsType<typeof getServerSideProps> 
       <h3 className={cls.title}>{formatMessage('title')}</h3>
 
       <div className={cls.container}>
-        <Checkbox label={formatMessage('checkboxes.personal')} />
+        <Checkbox label={formatMessage('checkboxes.personal')} checked />
         <Checkbox label={formatMessage('checkboxes.business')} />
       </div>
     </div>
