@@ -1,9 +1,9 @@
 import React from 'react';
 
-import clsx from 'clsx';
-
 import { MockData } from '../mockData';
 import cls from '../Payments.module.css';
+
+import { TableRow } from './TableRow';
 
 interface Props {
   data: MockData[];
@@ -12,12 +12,7 @@ export const TableBody = ({ data }: Props) => {
   return (
     <div className={cls.table_body}>
       {data.map(dataItem => (
-        <div key={dataItem.id} className={clsx(cls.row, cls.row_col_4)}>
-          <div>{dataItem.date}</div>
-          <div className={cls.col_price}>{dataItem.price}</div>
-          <div>{dataItem.subscriptionType}</div>
-          <div>{dataItem.paymentType}</div>
-        </div>
+        <TableRow key={dataItem.id} data={dataItem} />
       ))}
     </div>
   );
