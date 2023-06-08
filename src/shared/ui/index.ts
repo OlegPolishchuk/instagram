@@ -10,3 +10,4 @@ export { Spinner } from './Spinner/Spinner';
 export { Loader } from './Loader/Loader';
 export { CustomSelect } from './CustomSelect/CustomSelect';
 export { Pagination } from './Pagination/Pagination';
+export { IconButton } from './IconButton/IconButton';

@@ -34,13 +34,29 @@
         "middle": "50$ per 6 month",
         "high": "100$ per year"
       }
+    },
+    "buttons_payments": {
+      "title": "OR"
     }
   },
   "account_management": {
-    "title": "Account Management",
-    "checkboxes": {
-      "personal": "Personal",
-      "business": "Business"
+    "account": {
+      "title": "Account Management",
+      "checkboxes": {
+        "personal": "Personal",
+        "business": "Business"
+      }
+    },
+    "subscriptions": {
+      "title": "Your subscription costs",
+      "checkboxes": {
+        "low": "10$ per month",
+        "middle": "50$ per 6 month",
+        "high": "100$ per year"
+      }
+    },
+    "buttons_payments": {
+      "title": "Or"
     }
   },
   "payments": {

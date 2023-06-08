@@ -43,6 +43,9 @@
         "middle": "50$ за 6 месяцев",
         "high": "100$ за год"
       }
+    },
+    "buttons_payments": {
+      "title": "Или"
     }
   },
   "payments": {
