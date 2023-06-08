@@ -29,10 +29,20 @@
     }
   },
   "account_management": {
-    "title": "Управление аккаунтом",
-    "checkboxes": {
-      "personal": "Персональынй",
-      "business": "Бизнес"
+    "account": {
+      "title": "Управление аккаунтом",
+      "checkboxes": {
+        "personal": "Персональынй",
+        "business": "Бизнес"
+      }
+    },
+    "subscriptions": {
+      "title": "Ваша стоимость подписки",
+      "checkboxes": {
+        "low": "10$ в месяц",
+        "middle": "50$ за 6 месяцев",
+        "high": "100$ за год"
+      }
     }
   },
   "payments": {

@@ -1,3 +1,4 @@
 export { GeneralInfo } from './general-information/GeneralInfo';
 export { ActiveDevices, CurrentDevice } from './devices';
 export { Payments } from './payments/Payments';
+export { AccountOptions } from './account-management/AccountOptions';

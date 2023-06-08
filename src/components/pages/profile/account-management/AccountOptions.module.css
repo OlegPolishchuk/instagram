@@ -1,0 +1,36 @@
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+
+  margin-bottom: 10px;
+}
+
+.checkbox_container {
+  padding: 14px 25px;
+  background-color: var(--color-dark-500);
+
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-dark-300);
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.account_container {
+  margin-bottom: 42px;
+}
+
+.subscription_container {
+  opacity: 0;
+  pointer-events: none;
+
+  transition: .3s ease;
+}
+
+.open {
+  opacity: 1;
+  pointer-events: auto;
+}

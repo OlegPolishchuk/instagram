@@ -26,6 +26,14 @@
     "titles": {
       "this_device": "This Device",
       "other_devices": "Active Sessions"
+    },
+    "subscriptions": {
+      "title": "Your subscription costs",
+      "variants": {
+        "low": "10$ per month",
+        "middle": "50$ per 6 month",
+        "high": "100$ per year"
+      }
     }
   },
   "account_management": {

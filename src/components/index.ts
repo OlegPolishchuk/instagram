@@ -20,4 +20,5 @@ export {
   ActiveDevices,
   CurrentDevice,
   Payments,
+  AccountOptions,
 } from './pages';
