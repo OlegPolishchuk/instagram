@@ -17,7 +17,7 @@ export const DeviceCardList = ({ devices, title }: Props) => {
 
       <div className={cls.card_list_container}>
         {devices.map(device => (
-          <DevicesCard device={device} />
+          <DevicesCard device={device} key={`${device.ip}_${device.device}`} />
         ))}
       </div>
     </div>
