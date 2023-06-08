@@ -19,6 +19,6 @@ export {
   GeneralInfo,
   ActiveDevices,
   CurrentDevice,
-  Payments,
+  MyPayments,
   AccountOptions,
 } from './pages';

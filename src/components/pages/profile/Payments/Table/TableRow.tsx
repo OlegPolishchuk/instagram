@@ -2,18 +2,13 @@ import React from 'react';
 
 import clsx from 'clsx';
 
+import { MockData } from '../mockData';
 import cls from '../Payments.module.css';
 
 import { useFormatTranslations } from '@/shared/hooks';
 
 interface Props {
-  data: {
-    id: number;
-    date: string;
-    price: string;
-    subscriptionType: string;
-    paymentType: string;
-  };
+  data: MockData;
   className?: string;
 }
 export const TableRow = ({ data, className }: Props) => {
