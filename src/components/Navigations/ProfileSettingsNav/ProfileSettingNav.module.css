@@ -38,6 +38,9 @@
     overflow-x: auto;
     -ms-overflow-style: none;
     justify-content: flex-start;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
   }
 
   .nav::-webkit-scrollbar {
@@ -50,5 +53,7 @@
     padding-right: 20px;
 
     white-space: nowrap;
+
+    scroll-snap-align: center;
   }
 }
