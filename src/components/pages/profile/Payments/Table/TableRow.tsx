@@ -2,8 +2,9 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import { MockData } from '@/components/pages/profile/payments/mockData';
-import cls from '@/components/pages/profile/payments/Payments.module.css';
+import { MockData } from '../mockData';
+import cls from '../Payments.module.css';
+
 import { useFormatTranslations } from '@/shared/hooks';
 
 interface Props {

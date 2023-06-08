@@ -8,6 +8,7 @@ const DeleteUser = () => {
   const [deleteUser, { isLoading, isSuccess, data }] = useDeleteProfileTestMutation();
   const handleDelete = () => {
     console.log('delete');
+    console.log('data');
     deleteUser();
   };
 
