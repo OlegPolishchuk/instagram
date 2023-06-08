@@ -4,7 +4,7 @@ import { Controls } from './Controls/Controls';
 import { mockData, selectOptions } from './mockData';
 import Table from './Table/Table';
 
-export const Payments = () => {
+export const MyPayments = () => {
   const [itemsCount, setItemsCount] = useState(Number(selectOptions[1].value));
   const [currentPage, setCurrentPage] = useState(1);
 
