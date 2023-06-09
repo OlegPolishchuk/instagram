@@ -9,6 +9,8 @@ import { RxPerson } from 'react-icons/rx';
 import cls from '../AsideNav.module.css';
 import { NavLink } from '../NavLink/NavLink';
 
+import { ButtonCreatePost } from './ButtonCreatePost/ButtonCreatePost';
+
 import { LogoutButton } from '@/components/Navigations/LogoutButton/LogoutButton';
 import { Routes } from '@/shared/constants';
 import { useFormatTranslations } from '@/shared/hooks';
@@ -27,9 +29,7 @@ export const Nav = ({ className }: Props) => {
           {format('home')}
         </NavLink>
 
-        <NavLink href={Routes.Create} icon={<AiOutlinePlusSquare />}>
-          {format('create')}
-        </NavLink>
+        <ButtonCreatePost />
 
         <NavLink href={Routes.Profile.base} icon={<RxPerson />}>
           {format('profile')}

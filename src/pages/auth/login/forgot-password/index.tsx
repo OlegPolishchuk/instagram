@@ -10,8 +10,8 @@ import cls from './style.module.css';
 
 import { getHeaderLayout } from '@/components';
 import { ForgotPasswordForm } from '@/components/Forms';
+import { CommonModal } from '@/components/Modals';
 import { Routes } from '@/shared/constants';
-import { BaseModal } from '@/shared/ui';
 import { useRecoveryPasswordMutation } from '@/store/api/auth/authApi';
 
 const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
@@ -44,14 +44,14 @@ const ForgotPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
         <ForgotPasswordForm onSubmit={handleFormSubmit} isLoading={isLoading} />
       </div>
 
-      <BaseModal
+      <CommonModal
         isOpen={isSuccess}
         status={isSuccess ? 'success' : 'error'}
         confirmCallback={handleCloseModal}
         title={t('modal.title')}
       >
         <h1>{t('modal.message')}</h1>
-      </BaseModal>
+      </CommonModal>
     </>
   );
 };

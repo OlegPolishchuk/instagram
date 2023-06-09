@@ -28,7 +28,7 @@ export const FocusWrapper = ({ children, closePopper, popperRef }: Props) => {
     >
       <div
         tabIndex={-1}
-        style={popper.styles.popper}
+        style={{ ...popper.styles.popper, zIndex: 10 }}
         {...popper.attributes.popper}
         ref={setPopperElement}
         role="dialog"

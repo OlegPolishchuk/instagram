@@ -9,8 +9,8 @@ import { toast } from 'react-toastify';
 import cls from './style.module.css';
 
 import { getHeaderLayout, RecoveryForm } from '@/components';
+import { CommonModal } from '@/components/Modals';
 import { Routes } from '@/shared/constants';
-import { BaseModal } from '@/shared/ui';
 import { useNewPasswordMutation } from '@/store/api/auth/authApi';
 
 export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () => {
@@ -45,7 +45,7 @@ export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () =>
     <div className={cls.wrapper}>
       <RecoveryForm onSubmitCallback={handleSubmitForm} isLoading={isLoading} />
 
-      <BaseModal
+      <CommonModal
         isOpen={isSuccess || isError}
         status={isSuccess ? 'success' : 'error'}
         confirmCallback={() =>
@@ -54,7 +54,7 @@ export const NewPassword: InferGetStaticPropsType<typeof getStaticProps> = () =>
         title={modalTitle}
       >
         <h1>{modalMessage}</h1>
-      </BaseModal>
+      </CommonModal>
     </div>
   );
 };

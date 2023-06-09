@@ -2,13 +2,10 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 
 import clsx from 'clsx';
 import { Inter } from 'next/font/google';
-import { MdOutlineClose } from 'react-icons/md';
 import { CSSTransition } from 'react-transition-group';
 
 import animationStyles from './animation.module.css';
 import cls from './ModalLayout.module.css';
-
-import { Button } from '@/shared/ui';
 
 const overlayAnimation = {
   enter: animationStyles.overlayEnter,
@@ -27,32 +24,15 @@ const contentAnimation = {
 export const ANIMATION_TIME = 300;
 
 interface Props {
-  onClose?: () => void;
-  onConfirm: () => void;
+  onClose: () => void;
   children: ReactNode;
-  confirmBtnTitle?: string;
   opened: boolean;
-  title?: string;
   status?: 'error' | 'success';
-  isLoading?: boolean;
-  disabled?: boolean;
-  buttons?: ReactNode;
 }
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const ModalLayout = ({
-  onClose,
-  onConfirm,
-  children,
-  isLoading,
-  disabled,
-  opened,
-  title,
-  confirmBtnTitle,
-  status,
-  buttons,
-}: Props) => {
+export const ModalLayout = ({ onClose, children, opened, status }: Props) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -64,16 +44,6 @@ export const ModalLayout = ({
     statusClassName = status === 'success' ? cls.success : cls.error;
   }
 
-  const handleClose = () => {
-    if (onClose) {
-      onClose();
-
-      return;
-    }
-
-    onConfirm();
-  };
-
   useEffect(() => {
     setAnimationIn(opened);
   }, [opened]);
@@ -81,7 +51,7 @@ export const ModalLayout = ({
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        onConfirm();
+        onClose();
       }
     };
 
@@ -118,21 +88,7 @@ export const ModalLayout = ({
         classNames={contentAnimation}
       >
         <div ref={contentRef} className={clsx(statusClassName, cls.content)}>
-          <header className={cls.modal_header}>
-            <h2 className={cls.title}>{title}</h2>
-
-            <MdOutlineClose className={cls.modal_btn_close} onClick={handleClose} />
-          </header>
-
-          <div className={cls.modal_content}>{children}</div>
-
-          <footer className={cls.modal_footer}>
-            <Button onClick={onConfirm} isLoading={isLoading} disabled={disabled}>
-              {confirmBtnTitle || 'OK'}
-            </Button>
-
-            {buttons && <>{buttons}</>}
-          </footer>
+          {children}
         </div>
       </CSSTransition>
     </div>

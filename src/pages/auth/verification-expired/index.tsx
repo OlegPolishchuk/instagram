@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 import { Confirmation, getHeaderLayout, EmailConfirmationModal } from '@/components';
+import { CommonModal } from '@/components/Modals';
 import { Routes } from '@/shared/constants';
 import { BaseModal, Input } from '@/shared/ui';
 import { AuthError, useResendEmailMutation } from '@/store/api';
@@ -50,13 +51,13 @@ const VerificationExpired: InferGetStaticPropsType<typeof getStaticProps> = () =
     const err = error as AuthError;
 
     return (
-      <BaseModal
+      <CommonModal
         isOpen={isError}
         title={t('email_verification.modal.error.title')}
         confirmCallback={handleRedirectToLogin}
       >
         <p>{err.data.messages[0] && err.data.messages[0].message}</p>
-      </BaseModal>
+      </CommonModal>
     );
   }
 

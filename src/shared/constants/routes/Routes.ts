@@ -19,7 +19,6 @@ export const Routes = {
     },
   },
   Home: '/home',
-  Create: '/create',
   Statistics: '/statistics',
   Favorites: '/favorites',
 };

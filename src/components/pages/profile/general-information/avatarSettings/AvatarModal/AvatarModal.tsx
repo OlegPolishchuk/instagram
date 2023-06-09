@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import cls from './AvatarModal.module.css';
 
+import { CommonModal } from '@/components/Modals';
 import { BaseModal } from '@/shared/ui';
 
 export interface UploadedAvatar {
@@ -32,7 +33,7 @@ export const AvatarModal = ({
   };
 
   return (
-    <BaseModal
+    <CommonModal
       isOpen={isOpen}
       confirmCallback={uploadToServer}
       closeCallback={handleCloseModal}
@@ -48,6 +49,6 @@ export const AvatarModal = ({
           fill
         />
       </div>
-    </BaseModal>
+    </CommonModal>
   );
 };

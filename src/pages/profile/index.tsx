@@ -8,7 +8,7 @@ import { PostsList, ProfileData } from '@/components/Profile';
 import { useGetProfileQuery } from '@/store/api';
 
 const Profile: InferGetServerSidePropsType<typeof getServerSideProps> = () => {
-  const { isLoading, data } = useGetProfileQuery();
+  const { data } = useGetProfileQuery();
 
   if (!data) return null;
 

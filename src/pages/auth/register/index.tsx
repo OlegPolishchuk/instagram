@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 import { getHeaderLayout, RegisterForm } from '@/components';
+import { CommonModal } from '@/components/Modals';
 import { Routes } from '@/shared/constants';
 import { BaseModal } from '@/shared/ui';
 import { RegistrationUserFormData, useRegistrationMutation } from '@/store/api';
@@ -44,13 +45,14 @@ const Register: InferGetStaticPropsType<typeof getStaticProps> = () => {
         isLoading={isLoading}
         disabled={isSuccess}
       />
-      <BaseModal
+
+      <CommonModal
         isOpen={showModal}
         confirmCallback={handleCloseModal}
         title={t('email_sent_modal.title')}
       >
         <h1>{t('email_sent_modal.message', { userEmail })}</h1>
-      </BaseModal>
+      </CommonModal>
     </div>
   );
 };
