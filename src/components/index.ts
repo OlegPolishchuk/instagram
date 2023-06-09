@@ -13,8 +13,6 @@ export {
   MobileNavigations,
 } from './Navigations';
 
-export { LogoutModal } from './LogoutModal/LogoutModal';
-
 export {
   EmailConfirmationModal,
   Recaptcha,
@@ -26,4 +24,4 @@ export {
   AccountOptions,
 } from './pages';
 
-export { CreatePostBaseModal } from './Modals';
+export { CreatePostBaseModal, LogoutModal, CommonModal } from './Modals';

@@ -4,9 +4,10 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 
+import { CommonModal } from '@/components';
 import { Routes } from '@/shared/constants';
 import { localStorageService } from '@/shared/services';
-import { BaseModal, Button } from '@/shared/ui';
+import { Button } from '@/shared/ui';
 import { useLogoutMutation } from '@/store/api';
 
 interface Props {
@@ -41,7 +42,7 @@ export const LogoutModal = ({ open, setOpen }: Props) => {
   }, [isSuccess, isError]);
 
   return (
-    <BaseModal
+    <CommonModal
       isOpen={open}
       isLoading={isLoading}
       closeCallback={handleRejectLogout}
@@ -50,6 +51,6 @@ export const LogoutModal = ({ open, setOpen }: Props) => {
       buttons={RejectButton}
     >
       <p>{t('logout_button.modal.message')}</p>
-    </BaseModal>
+    </CommonModal>
   );
 };
