@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useTranslation } from 'next-i18next';
 
-import { BaseModal } from '@/shared/ui';
+import { CommonModal } from '@/components';
 
 interface Props {
   isOpen: boolean;
@@ -13,12 +13,12 @@ export const EmailConfirmationModal = ({ isOpen, closeCallback, email }: Props) 
   const { t } = useTranslation('registerPage');
 
   return (
-    <BaseModal
+    <CommonModal
       isOpen={isOpen}
       title={t('email_verification.modal.error.title')}
       confirmCallback={closeCallback}
     >
       <h1>{t('email_verification.modal.success.message', { userEmail: email })}</h1>
-    </BaseModal>
+    </CommonModal>
   );
 };
